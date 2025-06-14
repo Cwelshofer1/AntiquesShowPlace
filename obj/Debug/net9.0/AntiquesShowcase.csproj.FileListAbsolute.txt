@@ -1,0 +1,14 @@
+C:\Users\16157\workspace\csharp\AntiquesShowcase\bin\Debug\net9.0\AntiquesShowcase.exe
+C:\Users\16157\workspace\csharp\AntiquesShowcase\bin\Debug\net9.0\AntiquesShowcase.deps.json
+C:\Users\16157\workspace\csharp\AntiquesShowcase\bin\Debug\net9.0\AntiquesShowcase.runtimeconfig.json
+C:\Users\16157\workspace\csharp\AntiquesShowcase\bin\Debug\net9.0\AntiquesShowcase.dll
+C:\Users\16157\workspace\csharp\AntiquesShowcase\bin\Debug\net9.0\AntiquesShowcase.pdb
+C:\Users\16157\workspace\csharp\AntiquesShowcase\obj\Debug\net9.0\AntiquesShowcase.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\16157\workspace\csharp\AntiquesShowcase\obj\Debug\net9.0\AntiquesShowcase.AssemblyInfoInputs.cache
+C:\Users\16157\workspace\csharp\AntiquesShowcase\obj\Debug\net9.0\AntiquesShowcase.AssemblyInfo.cs
+C:\Users\16157\workspace\csharp\AntiquesShowcase\obj\Debug\net9.0\AntiquesShowcase.csproj.CoreCompileInputs.cache
+C:\Users\16157\workspace\csharp\AntiquesShowcase\obj\Debug\net9.0\AntiquesShowcase.dll
+C:\Users\16157\workspace\csharp\AntiquesShowcase\obj\Debug\net9.0\refint\AntiquesShowcase.dll
+C:\Users\16157\workspace\csharp\AntiquesShowcase\obj\Debug\net9.0\AntiquesShowcase.pdb
+C:\Users\16157\workspace\csharp\AntiquesShowcase\obj\Debug\net9.0\AntiquesShowcase.genruntimeconfig.cache
+C:\Users\16157\workspace\csharp\AntiquesShowcase\obj\Debug\net9.0\ref\AntiquesShowcase.dll
