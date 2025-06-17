@@ -118,21 +118,21 @@ namespace AntiquesShowcase.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "Users",
+                name: "UserProfiles",
                 columns: table => new
                 {
                     Id = table.Column<int>(type: "integer", nullable: false)
                         .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
                     Name = table.Column<string>(type: "text", nullable: false),
                     Email = table.Column<string>(type: "text", nullable: false),
-                    UserId = table.Column<int>(type: "integer", nullable: false),
                     UserDescription = table.Column<string>(type: "text", nullable: false),
                     UserPhotoUrl = table.Column<string>(type: "text", nullable: false),
-                    Password = table.Column<string>(type: "text", nullable: false)
+                    Password = table.Column<string>(type: "text", nullable: false),
+                    UserIdentityId = table.Column<string>(type: "text", nullable: true)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Users", x => x.Id);
+                    table.PrimaryKey("PK_UserProfiles", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
@@ -251,12 +251,12 @@ namespace AntiquesShowcase.Migrations
                 columns: new[] { "Id", "AccessFailedCount", "ConcurrencyStamp", "Email", "EmailConfirmed", "LockoutEnabled", "LockoutEnd", "NormalizedEmail", "NormalizedUserName", "PasswordHash", "PhoneNumber", "PhoneNumberConfirmed", "SecurityStamp", "TwoFactorEnabled", "UserName" },
                 values: new object[,]
                 {
-                    { "9ce89d88-75da-4a80-9b0d-3fe58582b8e2", 0, "2efe3382-a21c-481e-b06b-ff58fe7d3edd", "bob@williams.comx", false, false, null, null, null, "AQAAAAIAAYagAAAAEJYtajZ1wGzq4fvXJchktBe9f4zTB60hUguWYVqrSPL8cRx9VIqE1MK1NWekcgfR/g==", null, false, "a9f46fe7-879b-4347-93c1-b4028e36aceb", false, "BobWilliams" },
-                    { "a7d21fac-3b21-454a-a747-075f072d0cf3", 0, "729350df-557f-49f5-bfdf-5d9fe26e6bc5", "jane@smith.comx", false, false, null, null, null, "AQAAAAIAAYagAAAAEHEgAlFuY18BBtU++cRjrIC/I+aZgbYIyfVC2QXA5Qy5wPj07YGmbpwrRporIrlL1w==", null, false, "264edc81-3e14-488f-9ef7-bcb23ca034da", false, "JaneSmith" },
-                    { "c806cfae-bda9-47c5-8473-dd52fd056a9b", 0, "651ea789-8769-425a-93bb-ab247c136340", "alice@johnson.comx", false, false, null, null, null, "AQAAAAIAAYagAAAAEOqZqMrsqEYFDsv9th6eqO9SyaUrAjaZuVext/erbUWrjWZwta8C/P81rDS0YhKbeg==", null, false, "c078a51f-7147-4719-abca-06bee381c05c", false, "AliceJohnson" },
-                    { "d224a03d-bf0c-4a05-b728-e3521e45d74d", 0, "b0909e6e-54f9-4434-b546-0d70f5bd33d3", "Eve@Davis.comx", false, false, null, null, null, "AQAAAAIAAYagAAAAENLLMkTZlh+iY2hpg4iGfjzE3cJl7dVfXk5zOnd/kTcaT58dh7iA/yGTv/h4HMNDeQ==", null, false, "fb588b5a-403e-4856-bed2-c2a7dfa2c111", false, "EveDavis" },
-                    { "d8d76512-74f1-43bb-b1fd-87d3a8aa36df", 0, "f55457d9-e096-4956-9e4b-537b7d0cc589", "john@doe.comx", false, false, null, null, null, "AQAAAAIAAYagAAAAEIb2f1cyGgbOEgWR77z+n5lBcNQT86b9s5bUfe2i2LlsrjzCzu3Hvu3/ednZwP58Ig==", null, false, "b3ebbc75-7fe3-4905-98dc-019ca2e5bc3f", false, "JohnDoe" },
-                    { "dbc40bc6-0829-4ac5-a3ed-180f5e916a5f", 0, "fcb17e93-f4b6-403b-9f40-feb15672966b", "admina@strator.comx", false, false, null, null, null, "AQAAAAIAAYagAAAAEBRQ/ysK6Jo5Ek0vmYyxwY685M1yOqbdHTIGCR4AzTHIJYw351nqX+7jTvOxcLjUUw==", null, false, "c17cd802-16f6-4a74-a050-749b4c59a90f", false, "Administrator" }
+                    { "9ce89d88-75da-4a80-9b0d-3fe58582b8e2", 0, "7cb4fe0d-01fc-4075-b233-81bca95ff559", "bob@williams.comx", false, false, null, null, null, "AQAAAAIAAYagAAAAEM/jVWjBRUtWDWIN1wZfAhyEM1TnbEPlgiDd8YAU85yd0yBYykbDQGcv1aYJaN3SEg==", null, false, "62276f7e-c25d-43ba-a8dc-215f8bb07c0f", false, "BobWilliams" },
+                    { "a7d21fac-3b21-454a-a747-075f072d0cf3", 0, "749f9d4d-75d2-474b-9e05-cb578ef9816b", "jane@smith.comx", false, false, null, null, null, "AQAAAAIAAYagAAAAEGweCBxeWgqdn0Yg0TB5gCv5775t1+5MTbyoNKF+MasNZoYNvW+ETeIsbtuNKAx3iw==", null, false, "6f2004c2-876c-4b78-b133-5ffa26558ad3", false, "JaneSmith" },
+                    { "c806cfae-bda9-47c5-8473-dd52fd056a9b", 0, "786c3a7c-a5a6-4745-b65b-2a1d95909ed4", "alice@johnson.comx", false, false, null, null, null, "AQAAAAIAAYagAAAAEHF+XnOZemfF1suTo+itpc5mTL+9rc+ewgCclWpZtci1JogGPg/vGH3hJcFjvbnJSw==", null, false, "65eeba88-a34e-4dd8-8d01-717aab93625e", false, "AliceJohnson" },
+                    { "d224a03d-bf0c-4a05-b728-e3521e45d74d", 0, "33391090-9cea-47fd-b70c-4f25068890bc", "Eve@Davis.comx", false, false, null, null, null, "AQAAAAIAAYagAAAAEEyjG2qMgttTnWu1bbdogazvg948mkalTky8h+dF8R29DdpATU3MaV7UhQenUHh+YA==", null, false, "afa38744-b0d8-4004-8f36-9922c10f68d0", false, "EveDavis" },
+                    { "d8d76512-74f1-43bb-b1fd-87d3a8aa36df", 0, "6033ff51-a50d-4d35-8f60-6c4c4aa0e5c6", "john@doe.comx", false, false, null, null, null, "AQAAAAIAAYagAAAAEMCLEnI3q0KvTXbylh3+kKh6nXfQYuB3NP9N4eImH9Y+RnzH87mfhH3DBUYloP0edQ==", null, false, "d09ef951-8057-4d0c-af17-54558825d906", false, "JohnDoe" },
+                    { "dbc40bc6-0829-4ac5-a3ed-180f5e916a5f", 0, "1c0c398e-2896-4aed-b04a-0552beb2556e", "admina@strator.comx", false, false, null, null, null, "AQAAAAIAAYagAAAAEJwU1wCYAMVFdYjY9Lp/h9zh4LAzeNfjbMVvtYgPqGhIXVqVgtp5H9e+rL6qN7kmaw==", null, false, "7568d951-88b4-4353-952f-579a7a19d5fd", false, "Administrator" }
                 });
 
             migrationBuilder.InsertData(
@@ -301,15 +301,9 @@ namespace AntiquesShowcase.Migrations
                 });
 
             migrationBuilder.InsertData(
-                table: "Users",
-                columns: new[] { "Id", "Email", "Name", "Password", "UserDescription", "UserId", "UserPhotoUrl" },
-                values: new object[,]
-                {
-                    { 1, "colin@colin.com", "Colin", "colin", "Just a guy who likes antiques!", 1, "https://i.pinimg.com/736x/71/c3/44/71c3441d006039873bfb2ed701af628a.jpg" },
-                    { 2, "charlie@charlie.com", "Charlie", "charile", "Big antique collector looking to sell items.", 2, "https://media.istockphoto.com/id/525072301/photo/vintage-portrait.jpg?s=612x612&w=0&k=20&c=G3dImxHiFnj4jb-qF1Bl2PcdOdJivZE9CqMtMVMg3iY=" },
-                    { 3, "larry@larry.com", "Larry", "larry", "New to antiques just here to look around.", 3, "https://media.istockphoto.com/id/2157613224/vector/naturalist.jpg?s=612x612&w=0&k=20&c=OmfcN0GG5gZMrhUtOD4QKSKD7V3idey5AUEXaZxdiAI=" },
-                    { 4, "mary@mary.com", "Mary", "mary", "Antique Lover", 4, "https://media.istockphoto.com/id/2157613224/vector/naturalist.jpg?s=612x612&w=0&k=20&c=OmfcN0GG5gZMrhUtOD4QKSKD7V3idey" }
-                });
+                table: "UserProfiles",
+                columns: new[] { "Id", "Email", "Name", "Password", "UserDescription", "UserIdentityId", "UserPhotoUrl" },
+                values: new object[] { 4, "Alice@alice.com", "Alice", "alice", "Hi hello.", "c806cfae-bda9-47c5-8473-dd52fd056a9b", "" });
 
             migrationBuilder.InsertData(
                 table: "AspNetUserRoles",
@@ -389,7 +383,7 @@ namespace AntiquesShowcase.Migrations
                 name: "Items");
 
             migrationBuilder.DropTable(
-                name: "Users");
+                name: "UserProfiles");
 
             migrationBuilder.DropTable(
                 name: "AspNetRoles");

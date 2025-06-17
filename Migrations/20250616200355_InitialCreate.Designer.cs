@@ -12,7 +12,7 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace AntiquesShowcase.Migrations
 {
     [DbContext(typeof(AntiquesShowCaseDbContext))]
-    [Migration("20250616165459_InitialCreate")]
+    [Migration("20250616200355_InitialCreate")]
     partial class InitialCreate
     {
         /// <inheritdoc />
@@ -242,7 +242,7 @@ namespace AntiquesShowcase.Migrations
                         });
                 });
 
-            modelBuilder.Entity("AntiquesShowCase.Models.User", b =>
+            modelBuilder.Entity("AntiquesShowCase.Models.UserProfile", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -266,8 +266,8 @@ namespace AntiquesShowcase.Migrations
                         .IsRequired()
                         .HasColumnType("text");
 
-                    b.Property<int>("UserId")
-                        .HasColumnType("integer");
+                    b.Property<string>("UserIdentityId")
+                        .HasColumnType("text");
 
                     b.Property<string>("UserPhotoUrl")
                         .IsRequired()
@@ -275,48 +275,18 @@ namespace AntiquesShowcase.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Users");
+                    b.ToTable("UserProfiles");
 
                     b.HasData(
                         new
                         {
-                            Id = 1,
-                            Email = "colin@colin.com",
-                            Name = "Colin",
-                            Password = "colin",
-                            UserDescription = "Just a guy who likes antiques!",
-                            UserId = 1,
-                            UserPhotoUrl = "https://i.pinimg.com/736x/71/c3/44/71c3441d006039873bfb2ed701af628a.jpg"
-                        },
-                        new
-                        {
-                            Id = 2,
-                            Email = "charlie@charlie.com",
-                            Name = "Charlie",
-                            Password = "charile",
-                            UserDescription = "Big antique collector looking to sell items.",
-                            UserId = 2,
-                            UserPhotoUrl = "https://media.istockphoto.com/id/525072301/photo/vintage-portrait.jpg?s=612x612&w=0&k=20&c=G3dImxHiFnj4jb-qF1Bl2PcdOdJivZE9CqMtMVMg3iY="
-                        },
-                        new
-                        {
-                            Id = 3,
-                            Email = "larry@larry.com",
-                            Name = "Larry",
-                            Password = "larry",
-                            UserDescription = "New to antiques just here to look around.",
-                            UserId = 3,
-                            UserPhotoUrl = "https://media.istockphoto.com/id/2157613224/vector/naturalist.jpg?s=612x612&w=0&k=20&c=OmfcN0GG5gZMrhUtOD4QKSKD7V3idey5AUEXaZxdiAI="
-                        },
-                        new
-                        {
                             Id = 4,
-                            Email = "mary@mary.com",
-                            Name = "Mary",
-                            Password = "mary",
-                            UserDescription = "Antique Lover",
-                            UserId = 4,
-                            UserPhotoUrl = "https://media.istockphoto.com/id/2157613224/vector/naturalist.jpg?s=612x612&w=0&k=20&c=OmfcN0GG5gZMrhUtOD4QKSKD7V3idey"
+                            Email = "Alice@alice.com",
+                            Name = "Alice",
+                            Password = "alice",
+                            UserDescription = "Hi hello.",
+                            UserIdentityId = "c806cfae-bda9-47c5-8473-dd52fd056a9b",
+                            UserPhotoUrl = ""
                         });
                 });
 
@@ -447,13 +417,13 @@ namespace AntiquesShowcase.Migrations
                         {
                             Id = "dbc40bc6-0829-4ac5-a3ed-180f5e916a5f",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "fcb17e93-f4b6-403b-9f40-feb15672966b",
+                            ConcurrencyStamp = "1c0c398e-2896-4aed-b04a-0552beb2556e",
                             Email = "admina@strator.comx",
                             EmailConfirmed = false,
                             LockoutEnabled = false,
-                            PasswordHash = "AQAAAAIAAYagAAAAEBRQ/ysK6Jo5Ek0vmYyxwY685M1yOqbdHTIGCR4AzTHIJYw351nqX+7jTvOxcLjUUw==",
+                            PasswordHash = "AQAAAAIAAYagAAAAEJwU1wCYAMVFdYjY9Lp/h9zh4LAzeNfjbMVvtYgPqGhIXVqVgtp5H9e+rL6qN7kmaw==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "c17cd802-16f6-4a74-a050-749b4c59a90f",
+                            SecurityStamp = "7568d951-88b4-4353-952f-579a7a19d5fd",
                             TwoFactorEnabled = false,
                             UserName = "Administrator"
                         },
@@ -461,13 +431,13 @@ namespace AntiquesShowcase.Migrations
                         {
                             Id = "d8d76512-74f1-43bb-b1fd-87d3a8aa36df",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "f55457d9-e096-4956-9e4b-537b7d0cc589",
+                            ConcurrencyStamp = "6033ff51-a50d-4d35-8f60-6c4c4aa0e5c6",
                             Email = "john@doe.comx",
                             EmailConfirmed = false,
                             LockoutEnabled = false,
-                            PasswordHash = "AQAAAAIAAYagAAAAEIb2f1cyGgbOEgWR77z+n5lBcNQT86b9s5bUfe2i2LlsrjzCzu3Hvu3/ednZwP58Ig==",
+                            PasswordHash = "AQAAAAIAAYagAAAAEMCLEnI3q0KvTXbylh3+kKh6nXfQYuB3NP9N4eImH9Y+RnzH87mfhH3DBUYloP0edQ==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "b3ebbc75-7fe3-4905-98dc-019ca2e5bc3f",
+                            SecurityStamp = "d09ef951-8057-4d0c-af17-54558825d906",
                             TwoFactorEnabled = false,
                             UserName = "JohnDoe"
                         },
@@ -475,13 +445,13 @@ namespace AntiquesShowcase.Migrations
                         {
                             Id = "a7d21fac-3b21-454a-a747-075f072d0cf3",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "729350df-557f-49f5-bfdf-5d9fe26e6bc5",
+                            ConcurrencyStamp = "749f9d4d-75d2-474b-9e05-cb578ef9816b",
                             Email = "jane@smith.comx",
                             EmailConfirmed = false,
                             LockoutEnabled = false,
-                            PasswordHash = "AQAAAAIAAYagAAAAEHEgAlFuY18BBtU++cRjrIC/I+aZgbYIyfVC2QXA5Qy5wPj07YGmbpwrRporIrlL1w==",
+                            PasswordHash = "AQAAAAIAAYagAAAAEGweCBxeWgqdn0Yg0TB5gCv5775t1+5MTbyoNKF+MasNZoYNvW+ETeIsbtuNKAx3iw==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "264edc81-3e14-488f-9ef7-bcb23ca034da",
+                            SecurityStamp = "6f2004c2-876c-4b78-b133-5ffa26558ad3",
                             TwoFactorEnabled = false,
                             UserName = "JaneSmith"
                         },
@@ -489,13 +459,13 @@ namespace AntiquesShowcase.Migrations
                         {
                             Id = "c806cfae-bda9-47c5-8473-dd52fd056a9b",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "651ea789-8769-425a-93bb-ab247c136340",
+                            ConcurrencyStamp = "786c3a7c-a5a6-4745-b65b-2a1d95909ed4",
                             Email = "alice@johnson.comx",
                             EmailConfirmed = false,
                             LockoutEnabled = false,
-                            PasswordHash = "AQAAAAIAAYagAAAAEOqZqMrsqEYFDsv9th6eqO9SyaUrAjaZuVext/erbUWrjWZwta8C/P81rDS0YhKbeg==",
+                            PasswordHash = "AQAAAAIAAYagAAAAEHF+XnOZemfF1suTo+itpc5mTL+9rc+ewgCclWpZtci1JogGPg/vGH3hJcFjvbnJSw==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "c078a51f-7147-4719-abca-06bee381c05c",
+                            SecurityStamp = "65eeba88-a34e-4dd8-8d01-717aab93625e",
                             TwoFactorEnabled = false,
                             UserName = "AliceJohnson"
                         },
@@ -503,13 +473,13 @@ namespace AntiquesShowcase.Migrations
                         {
                             Id = "9ce89d88-75da-4a80-9b0d-3fe58582b8e2",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "2efe3382-a21c-481e-b06b-ff58fe7d3edd",
+                            ConcurrencyStamp = "7cb4fe0d-01fc-4075-b233-81bca95ff559",
                             Email = "bob@williams.comx",
                             EmailConfirmed = false,
                             LockoutEnabled = false,
-                            PasswordHash = "AQAAAAIAAYagAAAAEJYtajZ1wGzq4fvXJchktBe9f4zTB60hUguWYVqrSPL8cRx9VIqE1MK1NWekcgfR/g==",
+                            PasswordHash = "AQAAAAIAAYagAAAAEM/jVWjBRUtWDWIN1wZfAhyEM1TnbEPlgiDd8YAU85yd0yBYykbDQGcv1aYJaN3SEg==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "a9f46fe7-879b-4347-93c1-b4028e36aceb",
+                            SecurityStamp = "62276f7e-c25d-43ba-a8dc-215f8bb07c0f",
                             TwoFactorEnabled = false,
                             UserName = "BobWilliams"
                         },
@@ -517,13 +487,13 @@ namespace AntiquesShowcase.Migrations
                         {
                             Id = "d224a03d-bf0c-4a05-b728-e3521e45d74d",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "b0909e6e-54f9-4434-b546-0d70f5bd33d3",
+                            ConcurrencyStamp = "33391090-9cea-47fd-b70c-4f25068890bc",
                             Email = "Eve@Davis.comx",
                             EmailConfirmed = false,
                             LockoutEnabled = false,
-                            PasswordHash = "AQAAAAIAAYagAAAAENLLMkTZlh+iY2hpg4iGfjzE3cJl7dVfXk5zOnd/kTcaT58dh7iA/yGTv/h4HMNDeQ==",
+                            PasswordHash = "AQAAAAIAAYagAAAAEEyjG2qMgttTnWu1bbdogazvg948mkalTky8h+dF8R29DdpATU3MaV7UhQenUHh+YA==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "fb588b5a-403e-4856-bed2-c2a7dfa2c111",
+                            SecurityStamp = "afa38744-b0d8-4004-8f36-9922c10f68d0",
                             TwoFactorEnabled = false,
                             UserName = "EveDavis"
                         });
