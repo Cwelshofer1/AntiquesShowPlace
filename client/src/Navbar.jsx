@@ -24,13 +24,15 @@ export default function NavBar({ loggedInUser, setLoggedInUser }) {
         </NavbarBrand>
         {loggedInUser ? (
           <>
-            <NavbarToggler onClick={toggleNavbar} />
-            <Collapse isOpen={open} navbar>
-              <Nav navbar>
-                <NavItem onClick={() => setOpen(false)} />
-               
-              </Nav>
-            </Collapse>
+          
+              <NavLink tag={RRNavLink} to="/allitems">
+                <Button color="primary">All Items</Button>
+              </NavLink>
+              
+                <NavLink tag={RRNavLink} to="/additem">
+                <Button color="primary">Add Item</Button>
+              </NavLink>
+
             <Button
               color="primary"
               onClick={(e) => {

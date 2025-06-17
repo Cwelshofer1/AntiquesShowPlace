@@ -19,17 +19,20 @@ function App() {
   if(loggedInUser === undefined) {
     return <div>Page is loading...</div>
   }
-
+console.log(loggedInUser)
   return (
+    
   <>
   <NavBar loggedInUser={loggedInUser}
       setLoggedInUser={setLoggedInUser}/>
+      
     <ApplicationViews
       loggedInUser={loggedInUser}
       setLoggedInUser={setLoggedInUser}
       />
   </>
   )
+  
 }
 
 export default App
