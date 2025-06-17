@@ -14,7 +14,7 @@ public class AntiquesShowCaseDbContext : IdentityDbContext<IdentityUser>
     public DbSet<Comment> Comments { get; set; }
     public DbSet<CommentLike> CommentLikes { get; set; }
     public DbSet<Item> Items { get; set; }
-    public DbSet<User> Users { get; set; }
+    public DbSet<UserProfile> UserProfiles { get; set; }
 
 
 
@@ -190,46 +190,19 @@ public class AntiquesShowCaseDbContext : IdentityDbContext<IdentityUser>
             },
         });
 
-        modelBuilder.Entity<User>().HasData(new User[]
+        modelBuilder.Entity<UserProfile>().HasData(new UserProfile[]
 {
-    new User
-    {
-    Id = 1, 
-    Name = "Colin",
-    Email = "colin@colin.com",
-    UserId = 1,
-    UserDescription = "Just a guy who likes antiques!",
-    UserPhotoUrl ="https://i.pinimg.com/736x/71/c3/44/71c3441d006039873bfb2ed701af628a.jpg", 
-    Password = "colin" },
-   
-    new User
-    {
-    Id = 2,
-    Name = "Charlie",
-    Email = "charlie@charlie.com",
-    UserId = 2,
-    UserDescription = "Big antique collector looking to sell items.",
-    UserPhotoUrl = "https://media.istockphoto.com/id/525072301/photo/vintage-portrait.jpg?s=612x612&w=0&k=20&c=G3dImxHiFnj4jb-qF1Bl2PcdOdJivZE9CqMtMVMg3iY=",
-    Password = "charile" },
-
-    new User {
-    Id = 3,
-    Name = "Larry",
-    Email = "larry@larry.com",
-    UserId = 3,
-    UserDescription = "New to antiques just here to look around.",
-    UserPhotoUrl = "https://media.istockphoto.com/id/2157613224/vector/naturalist.jpg?s=612x612&w=0&k=20&c=OmfcN0GG5gZMrhUtOD4QKSKD7V3idey5AUEXaZxdiAI=",
-    Password = "larry"},
-
-    new User {
-    Id = 4,
-    Name = "Mary",
-    Email = "mary@mary.com",
-    UserId = 4,
-    UserDescription = "Antique Lover",
-    UserPhotoUrl = "https://media.istockphoto.com/id/2157613224/vector/naturalist.jpg?s=612x612&w=0&k=20&c=OmfcN0GG5gZMrhUtOD4QKSKD7V3idey",
-    Password= "mary"  }
-});
+            new UserProfile
+            {
+                Id = 4,
+                Name = "Alice",
+                Email = "Alice@alice.com",
+                UserDescription = "Hi hello.",
+                UserPhotoUrl = "",
+                Password = "alice",
+                UserIdentityId = "c806cfae-bda9-47c5-8473-dd52fd056a9b"
+            }
+    });
     }
 }
 

@@ -1,24 +1,21 @@
 using System.ComponentModel.DataAnnotations;
 
-namespace AntiquesShowCase.Models;
+namespace AntiquesShowCase.Data;
 
-public class User
+public class Registration
 {
-    public int Id { get; set; }
-
+   public int Id { get; set; }
     [Required]
     public string Name { get; set; }
     [Required]
     public string Email { get; set; }
-    [Required]
-    public int UserId { get; set; }
+ 
     [Required]
     public string UserDescription { get; set; }
     [Required]
     public string UserPhotoUrl { get; set; }
     [Required]
     public string Password { get; set; }
-
-    
+    public string UserIdentityId { get; set; }
 
 }
