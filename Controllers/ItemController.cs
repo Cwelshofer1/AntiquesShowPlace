@@ -7,6 +7,7 @@ using System.Security.Claims;
 using System.Text;
 using AntiquesShowCase.Models;
 using AntiquesShowCase.Data;
+using AntiquesShowCase.Models.DTOs;
 
 namespace AntiquesShowCase.Controllers;
 
@@ -32,9 +33,9 @@ public class ItemController : ControllerBase
         var Tags = _dbContext.Items;
         return Ok(Tags);
     }
-    
-        [HttpGet("{id}")]
-    
+
+    [HttpGet("{id}")]
+
     public IActionResult GetById(int id)
     {
         var item = _dbContext.Items.SingleOrDefault(t => t.Id == id);
@@ -47,4 +48,26 @@ public class ItemController : ControllerBase
         return Ok(item);
     }
 
+    [HttpPost]
+    public async Task<IActionResult> Post([FromBody] ItemDTO dto)
+    {
+        var NewItem = new Item
+        {
+            Id = dto.Id,
+            Name = dto.Name,
+            Description = dto.Description,
+            YearMade = dto.YearMade,
+            IsAntique = dto.IsAntique,
+            IsSeller = dto.IsSeller,
+            Price = dto.Price,
+            ItemPhotoUrl = dto.ItemPhotoUrl,
+            UserId = dto.UserId,
+            CategoryId = dto.CategoryId
+        };
+
+        _dbContext.Items.Add(NewItem);
+        await _dbContext.SaveChangesAsync();
+
+        return Created($"/api/order/{NewItem.Id}", dto);
+    }
 }

@@ -12,7 +12,7 @@ export const AddItem = (loggedInUser) => {
 
     const navigate = useNavigate()
 
-       useEffect(() => {
+    useEffect(() => {
         GetCategories().then(setAllCategories)
     }, [])
 
@@ -27,7 +27,7 @@ export const AddItem = (loggedInUser) => {
             isSeller: item.isSeller,
             price: item.price,
             itemPhotoUrl: item.itemPhotoUrl,
-            userId: loggedInUser.id,
+            userId: loggedInUser.loggedInUser.id,
             categoryId: item.categoryId
 
         }
@@ -80,7 +80,7 @@ export const AddItem = (loggedInUser) => {
                                 value={item?.yearMade}
                                 onChange={(evt) => {
                                     const copy = { ...item }
-                                    copy.yearmade = evt.target.value
+                                    copy.yearMade = evt.target.value
                                     setItem(copy)
                                 }}
                                 required
@@ -146,14 +146,21 @@ export const AddItem = (loggedInUser) => {
                     </fieldset>
                     <fieldset>
                         <div className="form-group">
-                            <label>Profile Image: </label>
+                            <label>Item image: </label>
                             <input type="file"
-                                value={item.itemPhotoUrl}
                                 accept="image/*"
                                 onChange={(evt) => {
                                     const copy = { ...item }
-                                    copy.itemPhotoUrl = evt.target.value
-                                    setItem(copy)
+                                    const file = evt.target.files[0];
+                                    const reader = new FileReader();
+
+                                    reader.onloadend = () => {
+                                        copy.itemPhotoUrl = reader.result;
+                                        setItem(copy);
+                                    }
+                                    if (file) {
+                                        reader.readAsDataURL(file);
+                                    }
                                 }}
 
                             />
@@ -165,15 +172,15 @@ export const AddItem = (loggedInUser) => {
                         onChange={(evt) => {
                             const copy = { ...item }
                             copy.categoryId = parseInt(evt.target.value)
-                            setCategory(copy)
+                            setItem(copy)
 
                         }}>
                         <option value="0">Select a category</option>
                         {category.map(categorys => (
 
-                            <option key={categorys.id} 
-                            value={categorys.id} >
-                            {categorys.name}
+                            <option key={categorys.id}
+                                value={categorys.id} >
+                                {categorys.name}
                             </option>
                         ))}
                     </select>

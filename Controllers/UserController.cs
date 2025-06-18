@@ -13,12 +13,12 @@ namespace AntiquesShowCase.Controllers;
 
 [ApiController]
 [Route("api/[controller]")]
-public class CategoryController : ControllerBase
+public class UserProfileController : ControllerBase
 {
     private AntiquesShowCaseDbContext _dbContext;
     private UserManager<IdentityUser> _userManager;
 
-    public CategoryController(AntiquesShowCaseDbContext context, UserManager<IdentityUser> userManager)
+    public UserProfileController(AntiquesShowCaseDbContext context, UserManager<IdentityUser> userManager)
     {
         _dbContext = context;
         _userManager = userManager;
@@ -29,7 +29,7 @@ public class CategoryController : ControllerBase
 
     public IActionResult Get()
     {
-        var categories = _dbContext.Categories;
-        return Ok(categories);
+        var userprofile = _dbContext.UserProfiles;
+        return Ok(userprofile);
     }
 }

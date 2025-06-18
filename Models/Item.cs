@@ -1,4 +1,5 @@
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace AntiquesShowCase.Models;
 
@@ -16,7 +17,7 @@ public class Item
     public bool IsAntique { get; set; }
     [Required]
     public bool IsSeller { get; set; }
-    
+
     public string Price { get; set; }
     [Required]
     public string ItemPhotoUrl { get; set; }
@@ -24,6 +25,8 @@ public class Item
     public int UserId { get; set; }
     [Required]
     public int CategoryId { get; set; }
+    [NotMapped]
+    public List<UserProfile> UserProfile { get; set; }
 
 
 }
