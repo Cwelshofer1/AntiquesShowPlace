@@ -18,7 +18,7 @@ public class Item
     [Required]
     public bool IsSeller { get; set; }
 
-    public string Price { get; set; }
+    public decimal Price { get; set; }
     [Required]
     public string ItemPhotoUrl { get; set; }
     [Required]

@@ -5,6 +5,7 @@ import { Home } from "./components/home/Homepage";
 import { AllItems } from "./components/Items/AllItems";
 import Register from "./components/auth/Register";
 import { AddItem } from "./components/Items/AddItemForm";
+import { MyItems } from "./components/Items/MyItems";
 
 
 
@@ -38,6 +39,11 @@ export default function ApplicationViews({ loggedInUser, setLoggedInUser }) {
         <Route
           path="additem"
           element={<AddItem setLoggedInUser={setLoggedInUser} loggedInUser ={loggedInUser} />}
+        />
+
+         <Route
+          path="myitems"
+          element={<MyItems setLoggedInUser={setLoggedInUser} loggedInUser ={loggedInUser} />}
         />
       </Route>
     </Routes>

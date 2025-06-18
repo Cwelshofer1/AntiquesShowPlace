@@ -13,3 +13,11 @@ return fetch(apiUrl, {
   body: JSON.stringify(item),
 }).then((res) => res.json());
 };
+
+export const DeleteItem = (id) => {
+  return fetch(`${apiUrl}/${id}`,
+    {
+      method: "DELETE"
+    }
+  )
+}

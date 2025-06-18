@@ -38,7 +38,7 @@ public class ItemController : ControllerBase
 
     public IActionResult GetById(int id)
     {
-        var item = _dbContext.Items.SingleOrDefault(t => t.Id == id);
+        var item = _dbContext.Items.SingleOrDefault(i => i.Id == id);
 
         if (item == null)
         {
@@ -69,5 +69,48 @@ public class ItemController : ControllerBase
         await _dbContext.SaveChangesAsync();
 
         return Created($"/api/order/{NewItem.Id}", dto);
+    }
+
+    [HttpDelete("{id}")]
+
+    public IActionResult Delete(int id)
+    {
+        var Item = _dbContext.Items.SingleOrDefault(i => i.Id == id);
+        if (Item == null) return NotFound();
+
+        _dbContext.Items.Remove(Item);
+        _dbContext.SaveChanges();
+        return NoContent();
+    }
+
+    [HttpPut("{id}")]
+
+    public IActionResult UpdateItem(Item item, int id)
+    {
+        Item ItemToUpdate = _dbContext.Items.SingleOrDefault(t => t.Id == id);
+        if (ItemToUpdate == null)
+        {
+            return NotFound();
+        }
+        else if (id != item.Id)
+        {
+            return BadRequest();
+        }
+
+        //These are the only properties that we want to make editable
+        ItemToUpdate.Name = item.Name;
+        ItemToUpdate.Description = item.Description;
+        ItemToUpdate.YearMade = item.YearMade;
+        ItemToUpdate.IsAntique = item.IsAntique;
+        ItemToUpdate.IsSeller = item.IsSeller;
+        ItemToUpdate.Price = item.Price;
+        ItemToUpdate.ItemPhotoUrl = item.ItemPhotoUrl;
+        ItemToUpdate.CategoryId = item.CategoryId;
+
+
+
+        _dbContext.SaveChanges();
+
+        return NoContent();
     }
 }

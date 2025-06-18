@@ -107,7 +107,7 @@ namespace AntiquesShowcase.Migrations
                     YearMade = table.Column<int>(type: "integer", nullable: false),
                     IsAntique = table.Column<bool>(type: "boolean", nullable: false),
                     IsSeller = table.Column<bool>(type: "boolean", nullable: false),
-                    Price = table.Column<string>(type: "text", nullable: true),
+                    Price = table.Column<decimal>(type: "numeric", nullable: false),
                     ItemPhotoUrl = table.Column<string>(type: "text", nullable: false),
                     UserId = table.Column<int>(type: "integer", nullable: false),
                     CategoryId = table.Column<int>(type: "integer", nullable: false)
@@ -251,12 +251,12 @@ namespace AntiquesShowcase.Migrations
                 columns: new[] { "Id", "AccessFailedCount", "ConcurrencyStamp", "Email", "EmailConfirmed", "LockoutEnabled", "LockoutEnd", "NormalizedEmail", "NormalizedUserName", "PasswordHash", "PhoneNumber", "PhoneNumberConfirmed", "SecurityStamp", "TwoFactorEnabled", "UserName" },
                 values: new object[,]
                 {
-                    { "9ce89d88-75da-4a80-9b0d-3fe58582b8e2", 0, "b3258779-0eb6-4c2c-b83b-a37d38b36001", "bob@williams.comx", false, false, null, null, null, "AQAAAAIAAYagAAAAEFy9xVZH315TSRG+WwmbIzGsLiKMLyjTJObryKnLq3dwAToyOVYeawZrZZ8LGrytdg==", null, false, "932bbdac-be88-42c8-a0fc-2e9681d5807d", false, "BobWilliams" },
-                    { "a7d21fac-3b21-454a-a747-075f072d0cf3", 0, "5afc6437-f2a2-4af8-99a6-49226646c269", "jane@smith.comx", false, false, null, null, null, "AQAAAAIAAYagAAAAEE02tyZDW0kYfP2MggZpSwWDIdIvS6F+1xvTk00Dg23FXAq0HUnNB3pRJcEl7pGrYA==", null, false, "4ca5355d-f87c-448e-9ee9-53a8b91e6548", false, "JaneSmith" },
-                    { "c806cfae-bda9-47c5-8473-dd52fd056a9b", 0, "02971c35-6886-4da6-aa93-680fafdb7d4f", "alice@johnson.comx", false, false, null, null, null, "AQAAAAIAAYagAAAAEIgIHI5Xs6z6mb/Y5SwofQzAXOScBgue9bAXjpL2bTxebthAglX7folls7fYOLUVBw==", null, false, "027714d3-6a08-498b-a410-b0cd3c0debc8", false, "AliceJohnson" },
-                    { "d224a03d-bf0c-4a05-b728-e3521e45d74d", 0, "fa501ddc-88a8-4351-beef-3f425abb1e7f", "Eve@Davis.comx", false, false, null, null, null, "AQAAAAIAAYagAAAAENQCdbYB9IrujCwoXhvFFJ57G/R6R9/gWGg5OFozQK/cfzYjGRykviWqzmJIXH+crw==", null, false, "28df03f5-aa27-4246-976b-6a64827b9151", false, "EveDavis" },
-                    { "d8d76512-74f1-43bb-b1fd-87d3a8aa36df", 0, "107d9010-11b3-43cf-a12b-e87e3acab266", "john@doe.comx", false, false, null, null, null, "AQAAAAIAAYagAAAAEEXje7hSYdltOPq0FVsYQtewT9NqAvwjaK3RsL8XHHxTvEnOmRLCOTCaFzdVBPCvLw==", null, false, "afbd550d-dbc2-4471-872a-838f4906d58d", false, "JohnDoe" },
-                    { "dbc40bc6-0829-4ac5-a3ed-180f5e916a5f", 0, "09fff417-52ca-42de-8099-a217001f91fb", "admina@strator.comx", false, false, null, null, null, "AQAAAAIAAYagAAAAEHyXK384IHwuqlzR+EZkMy+9cl/2kie7Z5eefKmsa0feO0eC5elZpgP/ic6ruCnsmg==", null, false, "712db35f-dd1b-489d-9ad1-85967d81230c", false, "Administrator" }
+                    { "9ce89d88-75da-4a80-9b0d-3fe58582b8e2", 0, "002df88e-dc8c-4b0e-a61d-6f9e9403f23d", "bob@williams.comx", false, false, null, null, null, "AQAAAAIAAYagAAAAEKZWGpc2j5pUQRNR9HFKRLpTkrWtz/+NyrZtcKNkbim/D90+A+Xaf47/QfzEJDhXPw==", null, false, "b09a1fe9-5fdf-4b56-a465-2c210d80fc1d", false, "BobWilliams" },
+                    { "a7d21fac-3b21-454a-a747-075f072d0cf3", 0, "0380a2f0-bfee-497d-9b24-18fd2c0a03e9", "jane@smith.comx", false, false, null, null, null, "AQAAAAIAAYagAAAAEG+HLKNaMrXpLbHnN6W3J4Ou33MkeFhz9qq3qqkMYCrPI4dvtx7jkfiGie0YSotDDA==", null, false, "e8643ea4-67cf-44be-859e-5239904f914c", false, "JaneSmith" },
+                    { "c806cfae-bda9-47c5-8473-dd52fd056a9b", 0, "7442d3c7-7da3-4cce-a9c6-54bc948f0d2e", "alice@johnson.comx", false, false, null, null, null, "AQAAAAIAAYagAAAAECqg6w3UlrFwkJGbp4xUt1xfCX+9rPYFbT9VW6r64C9QEojIT8e/QUdLKR7MfmNLQQ==", null, false, "48e65a6b-35a7-439f-9082-793611d0ef0c", false, "AliceJohnson" },
+                    { "d224a03d-bf0c-4a05-b728-e3521e45d74d", 0, "bc7a41ca-d5d0-419c-a723-322affc7c5d0", "Eve@Davis.comx", false, false, null, null, null, "AQAAAAIAAYagAAAAEJq7+MIMrulqI6KeEPd1ntJis9cUAkqLj2SsE52jPVY3nSKbWluFu/J62t0XtK5/Fg==", null, false, "6ff5c2e1-ee00-45f5-b0dc-ac645c823e2a", false, "EveDavis" },
+                    { "d8d76512-74f1-43bb-b1fd-87d3a8aa36df", 0, "99f98de3-cd6d-4162-8309-3329f35acf38", "john@doe.comx", false, false, null, null, null, "AQAAAAIAAYagAAAAEGXJWTviNwbJET6JjYcI5VnclUlw0GV/nnLduD8xfHOTAIDNfImRtYny2olv0gmzXA==", null, false, "d5d15915-3e70-442d-b10d-935651ebbad9", false, "JohnDoe" },
+                    { "dbc40bc6-0829-4ac5-a3ed-180f5e916a5f", 0, "85fb5650-0357-4a66-b89a-9080ed1b3161", "admina@strator.comx", false, false, null, null, null, "AQAAAAIAAYagAAAAEEgu0J9+mHITeI5oKk/YZWFsq1yWnSXoQKwso8hIXLkvfKD+sWq7TApDB//MHCkwMg==", null, false, "49b3d097-94cd-4d44-a41b-00ea69c9f422", false, "Administrator" }
                 });
 
             migrationBuilder.InsertData(
@@ -295,9 +295,9 @@ namespace AntiquesShowcase.Migrations
                 columns: new[] { "Id", "CategoryId", "Description", "IsAntique", "IsSeller", "ItemPhotoUrl", "Name", "Price", "UserId", "YearMade" },
                 values: new object[,]
                 {
-                    { 1, 1, "100 year old warerobe, maybe haunted.", true, false, "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQsOSvbM1W_0mSQcrj3lWSkMnzPLaj2p5IP6A&s", "Old Wardrobe", "", 1, 1925 },
-                    { 2, 1, "Old 3 point tractor hitch", true, true, "https://i.ebayimg.com/images/g/OQ4AAOSwZ-FmV5qi/s-l400.jpg", "Old Tractor Hitch", "300", 1, 1915 },
-                    { 3, 1, "Old painting by unknown author dated 1912", true, true, "https://www.bisgart.com/images/stories/virtuemart/product/QR510%205a%20antique%20oil%20portrait%20paintings%20man%20portrait%2019thpg.jpg", "Antique Painting", "1000", 1, 1912 }
+                    { 1, 1, "100 year old warerobe, maybe haunted.", true, false, "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQsOSvbM1W_0mSQcrj3lWSkMnzPLaj2p5IP6A&s", "Old Wardrobe", 500.00m, 1, 1925 },
+                    { 2, 1, "Old 3 point tractor hitch", true, true, "https://i.ebayimg.com/images/g/OQ4AAOSwZ-FmV5qi/s-l400.jpg", "Old Tractor Hitch", 30.00m, 1, 1915 },
+                    { 3, 1, "Old painting by unknown author dated 1912", true, true, "https://www.bisgart.com/images/stories/virtuemart/product/QR510%205a%20antique%20oil%20portrait%20paintings%20man%20portrait%2019thpg.jpg", "Antique Painting", 20.00m, 1, 1912 }
                 });
 
             migrationBuilder.InsertData(
