@@ -40,6 +40,7 @@ export default function NavBar({ loggedInUser, setLoggedInUser }) {
                 <Button color="primary">My Items</Button>
               </NavLink>
 
+
             <Button
               color="primary"
               onClick={(e) => {

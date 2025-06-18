@@ -21,3 +21,18 @@ export const DeleteItem = (id) => {
     }
   )
 }
+
+export const UpdateItem = (item) => {
+  return fetch(`${apiUrl}/${item.id}`, {
+    method: "PUT",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(item),
+  });
+};
+
+export const GetItemById = (id) => {
+  return fetch(`${apiUrl}/${id}`).then(res => res.json())
+}
+
