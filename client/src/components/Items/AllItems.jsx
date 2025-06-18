@@ -1,11 +1,13 @@
 import { useState, useEffect } from "react";
 import { GetItems } from "../managers/itemManager";
 import { GetUserProfiles } from "../managers/userprofilemanager";
+import { GetCategories } from "../managers/categorymanager";
 
 export const AllItems = () => {
 
     const [allItems, setAllItems] = useState([])
     const [allUsers, setAllUsers] = useState([])
+    const [allCategories, setAllCategories] = useState([])
 
     useEffect(() => {
         GetItems().then(setAllItems)
@@ -14,6 +16,11 @@ export const AllItems = () => {
     useEffect(() => {
         GetUserProfiles().then(setAllUsers)
     }, [])
+
+       useEffect(() => {
+        GetCategories().then(setAllCategories)
+    }, [])
+
 
     return (
         <>
@@ -29,6 +36,11 @@ export const AllItems = () => {
                         .filter((user) => user.id === item.userId)
                         .map((user) => (
                             <div key={user.id}>Seller: {user.name}</div>
+                        ))}
+                    {allCategories
+                        .filter((category) => category.id === item.categoryId)
+                        .map((category) => (
+                            <div key={category.id}>Category: {category.name}</div>
                         ))}
 
 
