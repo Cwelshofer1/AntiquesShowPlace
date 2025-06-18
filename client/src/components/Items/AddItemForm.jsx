@@ -46,7 +46,7 @@ export const AddItem = (loggedInUser) => {
                             <label>Name:</label>
                             <input
                                 type="text"
-                                value={item?.name}
+                                value={item?.name || ""}
                                 onChange={(evt) => {
                                     const copy = { ...item }
                                     copy.name = evt.target.value
@@ -61,7 +61,7 @@ export const AddItem = (loggedInUser) => {
                             <label>Description:</label>
                             <input
                                 type="text"
-                                value={item?.Description}
+                                value={item?.description || ""}
                                 onChange={(evt) => {
                                     const copy = { ...item }
                                     copy.description = evt.target.value
@@ -77,7 +77,7 @@ export const AddItem = (loggedInUser) => {
                             <input
                                 type="number"
                                 placeholder="Enter year made (If known)"
-                                value={item?.yearMade}
+                                value={item?.yearMade || ""}
                                 onChange={(evt) => {
                                     const copy = { ...item }
                                     copy.yearMade = evt.target.value
@@ -127,7 +127,7 @@ export const AddItem = (loggedInUser) => {
                                         <input
                                             type="number"
                                             placeholder="Enter a price"
-                                            value={item?.Price}
+                                            value={item?.price || ""}
                                             onChange={(evt) => {
                                                 const copy = { ...item }
                                                 copy.price = evt.target.value
@@ -168,7 +168,7 @@ export const AddItem = (loggedInUser) => {
                     </fieldset>
 
                     <select
-                        value={item?.categoryId}
+                        value={item?.categoryId || 0}
                         onChange={(evt) => {
                             const copy = { ...item }
                             copy.categoryId = parseInt(evt.target.value)

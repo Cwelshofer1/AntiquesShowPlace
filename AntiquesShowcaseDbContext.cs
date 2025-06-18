@@ -157,7 +157,7 @@ public class AntiquesShowCaseDbContext : IdentityDbContext<IdentityUser>
                 YearMade = 1925,
                 IsAntique = true,
                 IsSeller = false,
-                Price = "",
+                Price = 500.00M,
                 ItemPhotoUrl = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQsOSvbM1W_0mSQcrj3lWSkMnzPLaj2p5IP6A&s",
                 UserId = 1,
                 CategoryId = 1
@@ -170,7 +170,7 @@ public class AntiquesShowCaseDbContext : IdentityDbContext<IdentityUser>
                 YearMade = 1915,
                 IsAntique = true,
                 IsSeller = true,
-                Price = "300",
+                Price = 30.00M,
                 ItemPhotoUrl = "https://i.ebayimg.com/images/g/OQ4AAOSwZ-FmV5qi/s-l400.jpg",
                 UserId = 1,
                 CategoryId = 1
@@ -183,7 +183,7 @@ public class AntiquesShowCaseDbContext : IdentityDbContext<IdentityUser>
                 YearMade = 1912,
                 IsAntique = true,
                 IsSeller = true,
-                Price = "1000",
+                Price = 20.00M,
                 ItemPhotoUrl = "https://www.bisgart.com/images/stories/virtuemart/product/QR510%205a%20antique%20oil%20portrait%20paintings%20man%20portrait%2019thpg.jpg",
                 UserId = 1,
                 CategoryId = 1

@@ -36,6 +36,10 @@ export default function NavBar({ loggedInUser, setLoggedInUser }) {
                 <Button color="primary">Add Item</Button>
               </NavLink>
 
+              <NavLink tag={RRNavLink} to="/myitems">
+                <Button color="primary">My Items</Button>
+              </NavLink>
+
             <Button
               color="primary"
               onClick={(e) => {

@@ -10,7 +10,7 @@ public class ItemDTO
     public int YearMade { get; set; }
     public bool IsAntique { get; set; }
     public bool IsSeller { get; set; }
-    public string Price { get; set; }
+    public decimal Price { get; set; }
     public string ItemPhotoUrl { get; set; }
     public int UserId { get; set; }
     public int CategoryId { get; set; }
