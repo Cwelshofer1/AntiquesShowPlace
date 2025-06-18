@@ -73,14 +73,20 @@ export default function Register({ setLoggedInUser }) {
           }}
         />
       </FormGroup>
-         <FormGroup>
+      <FormGroup>
         <Label>User Profile Photo (optional)</Label>
         <Input
-          type="text"
-          value={userPhotoUrl}
-          onChange={(e) => {
-            setPhotoUrl(e.target.value);
-          }}
+        type="file"
+          accept="image/*"
+          onChange={(evt) => {
+                      const file = evt.target.files[0];
+                      const reader = new FileReader();
+          
+                      reader.onloadend = () => {
+                        setPhotoUrl(reader.result);
+                      }
+                      reader.readAsDataURL(file);
+                    }}
         />
       </FormGroup>
       <FormGroup>

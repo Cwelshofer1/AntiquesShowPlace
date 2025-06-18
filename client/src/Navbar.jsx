@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { NavLink, NavLink as RRNavLink } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import {
   Button,
   Collapse,
@@ -16,6 +17,8 @@ export default function NavBar({ loggedInUser, setLoggedInUser }) {
 
   const toggleNavbar = () => setOpen(!open);
 
+  const navigate = useNavigate()
+
   return (
     <div>
       <Navbar light fixed="true" expand="lg">
@@ -24,19 +27,22 @@ export default function NavBar({ loggedInUser, setLoggedInUser }) {
         </NavbarBrand>
         {loggedInUser ? (
           <>
-            <NavbarToggler onClick={toggleNavbar} />
-            <Collapse isOpen={open} navbar>
-              <Nav navbar>
-                <NavItem onClick={() => setOpen(false)} />
-               
-              </Nav>
-            </Collapse>
+          
+              <NavLink tag={RRNavLink} to="/allitems">
+                <Button color="primary">All Items</Button>
+              </NavLink>
+              
+                <NavLink tag={RRNavLink} to="/additem">
+                <Button color="primary">Add Item</Button>
+              </NavLink>
+
             <Button
               color="primary"
               onClick={(e) => {
                 e.preventDefault();
                 setOpen(false);
                 logout().then(() => {
+                  navigate('/login')
                   setLoggedInUser(null);
                   setOpen(false);
                 });
@@ -46,14 +52,9 @@ export default function NavBar({ loggedInUser, setLoggedInUser }) {
             </Button>
           </>
         ) : (
-          <Nav navbar>
-            <NavItem>
-              <NavLink tag={RRNavLink} to="/login">
-                <Button color="primary">Login</Button>
-              </NavLink>
-            </NavItem>
-          </Nav>
+         <div></div>
         )}
+     
       </Navbar>
     </div>
   );
