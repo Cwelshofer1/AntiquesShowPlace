@@ -7,6 +7,7 @@ import Register from "./components/auth/Register";
 import { AddItem } from "./components/Items/AddItemForm";
 import { MyItems } from "./components/Items/MyItems";
 import { EditItem } from "./components/Items/EditItem";
+import { NewCategoryForm } from "./components/Categories/AddCategoriesForm";
 
 
 
@@ -50,6 +51,11 @@ export default function ApplicationViews({ loggedInUser, setLoggedInUser }) {
         <Route
           path="myitems/edititem/:id"
           element={<EditItem setLoggedInUser={setLoggedInUser} loggedInUser ={loggedInUser} />}
+        />
+
+         <Route
+          path="addcategory"
+          element={<NewCategoryForm setLoggedInUser={setLoggedInUser} loggedInUser ={loggedInUser} />}
         />
       </Route>
     </Routes>
