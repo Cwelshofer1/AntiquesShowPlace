@@ -208,7 +208,7 @@ export const EditItem = (loggedInUser) => {
 
                     <div className="form-group">
                         <button onClick={handleSave}
-                            className="new-tag-button">Save Antique</button>
+                            className="new-antique-button">Save Antique</button>
                     </div>
 
                 </div>

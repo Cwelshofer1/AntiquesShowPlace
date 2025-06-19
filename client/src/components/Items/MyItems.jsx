@@ -75,7 +75,7 @@ export const MyItems = (loggedInUser) => {
                     />
                     <button onClick={() => handleItemDelete(item.id)}>Delete item</button>
                     <Link to={`edititem/${item.id}`}>
-                        <button>Edit item </button>
+                        <button >Edit item </button>
                     </Link>
                 </div>
             ))}

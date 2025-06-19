@@ -88,12 +88,15 @@ export default function Register({ setLoggedInUser }) {
             reader.readAsDataURL(file);
           }}
         />
-
+        {userPhotoUrl !== "" ? (
         <img
           src={userPhotoUrl}
           alt="Item"
           style={{ width: "150px", height: "100px", objectFit: "cover", marginRight: "15px" }}
         />
+        ) : (
+          <></>
+        ) }
 
       </FormGroup>
       <FormGroup>

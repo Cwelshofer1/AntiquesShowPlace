@@ -118,10 +118,10 @@ public class AntiquesShowCaseDbContext : IdentityDbContext<IdentityUser>
         });
         modelBuilder.Entity<Comment>().HasData(new Comment[]
 {
-    new Comment { Id = 1, Message = "Hi there Welcome!", DatePosted = new DateTime(2024, 5, 2), UserId = 1, CommentId = 1 },
-    new Comment { Id = 2, Message = "Nice stuff!!", DatePosted = new DateTime(2024, 6, 1), UserId = 2, CommentId = 2 },
-    new Comment { Id = 3, Message = "Price Too high!", DatePosted = new DateTime(2024, 4, 1), UserId = 3, CommentId = 3 },
-    new Comment { Id = 4, Message = "Where did you get this?", DatePosted = new DateTime(2024, 3, 1), UserId = 4, CommentId = 4 }
+    new Comment { Id = 1, Message = "Hi there Welcome!", DatePosted = new DateTime(2024, 5, 2), UserId = 1, ItemId = 1 },
+    new Comment { Id = 2, Message = "Nice stuff!!", DatePosted = new DateTime(2024, 6, 1), UserId = 2, ItemId = 2 },
+    new Comment { Id = 3, Message = "Price Too high!", DatePosted = new DateTime(2024, 4, 1), UserId = 3, ItemId = 3 },
+    new Comment { Id = 4, Message = "Where did you get this?", DatePosted = new DateTime(2024, 3, 1), UserId = 4, ItemId = 4 }
 });
         modelBuilder.Entity<CommentLike>().HasData(new CommentLike[]
         {

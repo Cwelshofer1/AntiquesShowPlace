@@ -8,6 +8,8 @@ import { AddItem } from "./components/Items/AddItemForm";
 import { MyItems } from "./components/Items/MyItems";
 import { EditItem } from "./components/Items/EditItem";
 import { NewCategoryForm } from "./components/Categories/AddCategoriesForm";
+import { ItemDetails } from "./components/Items/ItemDetails";
+import { AddComment } from "./components/comments/AddComment";
 
 
 
@@ -57,6 +59,17 @@ export default function ApplicationViews({ loggedInUser, setLoggedInUser }) {
           path="addcategory"
           element={<NewCategoryForm setLoggedInUser={setLoggedInUser} loggedInUser ={loggedInUser} />}
         />
+
+          <Route
+          path="itemdetails/:id"
+          element={<ItemDetails setLoggedInUser={setLoggedInUser} loggedInUser ={loggedInUser} />}
+        />
+
+             <Route
+          path="itemdetails/:id/addcomment"
+          element={<AddComment setLoggedInUser={setLoggedInUser} loggedInUser ={loggedInUser} />}
+        />
+
       </Route>
     </Routes>
   );
