@@ -43,11 +43,6 @@ export const MyItems = (loggedInUser) => {
             }
         })
     }
-    const handleItemEdit = (item) => {
-        DeleteItem(item).then(GetItems).then((itemsArray) => {
-            navigate(`/edititem/:id`)
-        })
-    }
 
     useEffect(() => {
         getAndSetItems()

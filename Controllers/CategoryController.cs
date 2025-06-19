@@ -7,6 +7,7 @@ using System.Security.Claims;
 using System.Text;
 using AntiquesShowCase.Models;
 using AntiquesShowCase.Data;
+using AntiquesShowCase.Models.DTOs;
 
 namespace AntiquesShowCase.Controllers;
 
@@ -31,5 +32,20 @@ public class CategoryController : ControllerBase
     {
         var categories = _dbContext.Categories;
         return Ok(categories);
+    }
+
+     [HttpPost]
+    public async Task<IActionResult> Post([FromBody] CategoryDTO dto)
+    {
+        var NewCategory = new Category
+        {
+            Id = dto.Id,
+            Name = dto.Name
+        };
+
+        _dbContext.Categories.Add(NewCategory);
+        await _dbContext.SaveChangesAsync();
+
+        return Created($"/api/order/{NewCategory.Id}", dto);
     }
 }
