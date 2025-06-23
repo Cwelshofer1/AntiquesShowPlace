@@ -27,7 +27,8 @@ export const AllItems = () => {
             {allItems.map((item) => (
                 <div key={item.id}>
                     <Link  onClick={() => window.scrollTo(0, 0)}key={item.id} to={`/itemdetails/${item.id}`}>
-                        <div className="item-name">{item.name}</div> </Link>
+                        <div className="item-name">{item.name}</div>
+                         </Link>
                     <div>Name: {item.name}</div>
                     <div>Description: {item.description}</div>
                     <div>Year Made: {item.yearMade}</div>

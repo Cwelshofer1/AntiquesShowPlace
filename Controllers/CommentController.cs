@@ -58,15 +58,15 @@ public class CommentController : ControllerBase
 
     public IActionResult Delete(int id)
     {
-        var Item = _dbContext.Items.SingleOrDefault(i => i.Id == id);
-        if (Item == null) return NotFound();
+        var comment = _dbContext.Comments.SingleOrDefault(c => c.Id == id);
+        if (comment == null) return NotFound();
 
-        _dbContext.Items.Remove(Item);
+        _dbContext.Comments.Remove(comment);
         _dbContext.SaveChanges();
         return NoContent();
     }
-    
-      [HttpPut("{id}")]
+
+    [HttpPut("{id}")]
 
     public IActionResult UpdateComment(Comment comment, int id)
     {
@@ -87,5 +87,18 @@ public class CommentController : ControllerBase
 
         return NoContent();
     }
+    
+     [HttpGet("{id}")]
 
+    public IActionResult GetById(int id)
+    {
+        var comment = _dbContext.Comments.SingleOrDefault(c => c.Id == id);
+
+        if (comment == null)
+        {
+            return NotFound();
+        }
+
+        return Ok(comment);
+    }
 }

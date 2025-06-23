@@ -41,6 +41,7 @@ export default function Register({ setLoggedInUser }) {
   };
 
   return (
+    
     <div className="container" style={{ maxWidth: "500px" }}>
       <h3>Sign Up</h3>
       <FormGroup>

@@ -11,14 +11,13 @@ function App() {
   const [loggedInUser, setLoggedInUser] = useState();
 
   useEffect(() => {
+    if(loggedInUser !== undefined){
     tryGetLoggedInUser().then((user) => {
       setLoggedInUser(user);
-    })
+    })}
   }, []);
 
-  if(loggedInUser === undefined) {
-    return <div>Page is loading...</div>
-  }
+ 
 console.log(loggedInUser)
   return (
     

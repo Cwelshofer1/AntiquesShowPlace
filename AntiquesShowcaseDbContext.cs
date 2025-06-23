@@ -194,14 +194,78 @@ public class AntiquesShowCaseDbContext : IdentityDbContext<IdentityUser>
 {
             new UserProfile
             {
-                Id = 4,
-                Name = "Alice",
-                Email = "Alice@alice.com",
-                UserDescription = "Hi hello.",
+
+                Id = 1,
+                Name = "Admininistrator",
+                Email = "admina@strator.comx",
+                UserDescription = "Hi !.",
                 UserPhotoUrl = "",
-                Password = "alice",
+                Password = "admin",
+                UserIdentityId = "dbc40bc6-0829-4ac5-a3ed-180f5e916a5f"
+            },
+
+            new UserProfile
+            {
+
+                Id = 2,
+                Name = "JohnDoe",
+                Email = "johndoe.comx",
+                UserDescription = "Hi! !.",
+                UserPhotoUrl = "",
+                Password = "johndoe",
+                UserIdentityId = "d8d76512-74f1-43bb-b1fd-87d3a8aa36df"
+            },
+
+
+            new UserProfile
+            {
+
+                Id = 3,
+                Name = "JaneSmith",
+                Email = "jane@smith.comx",
+                UserDescription = "Hi!! !.",
+                UserPhotoUrl = "",
+                Password = "janesmith",
+                UserIdentityId = "a7d21fac-3b21-454a-a747-075f072d0cf3"
+            },
+
+            new UserProfile
+            {
+
+                Id = 4,
+                Name = "AliceJohnson",
+                Email = "alice@johnson.comx",
+                UserDescription = "Hi!!! !.",
+                UserPhotoUrl = "",
+                Password = "alicejohnson",
                 UserIdentityId = "c806cfae-bda9-47c5-8473-dd52fd056a9b"
-            }
+            },
+
+            new UserProfile
+            {
+                Id = 5,
+                Name = "BobWilliams",
+                Email = "bob@williams.comx",
+                UserDescription = "Hi hello!!",
+                UserPhotoUrl = "",
+                Password = "bobwilliams",
+                UserIdentityId = "9ce89d88-75da-4a80-9b0d-3fe58582b8e2"
+            },
+
+             new UserProfile
+            {
+                Id = 6,
+                Name = "EveDavis",
+                Email = "Eve@Davis.comx",
+                UserDescription = "Hi! hello!!!!",
+                UserPhotoUrl = "",
+                Password = "evedavis",
+                UserIdentityId = "d224a03d-bf0c-4a05-b728-e3521e45d74d"
+            },
+            
+            
+
+
     });
     }
 }

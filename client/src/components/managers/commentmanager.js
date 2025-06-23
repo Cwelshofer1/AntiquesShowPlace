@@ -31,3 +31,7 @@ export const UpdateComment = (comment) => {
     body: JSON.stringify(comment),
   });
 };
+
+export const GetCommentById = (id) => {
+  return fetch(`${apiUrl}/${id}`).then(res => res.json())
+}
