@@ -1,13 +1,16 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { login } from "../managers/authmanager";
 import { Button, FormFeedback, FormGroup, Input, Label } from "reactstrap";
+import { GetUserProfiles } from "../managers/userprofilemanager";
 
-export function Login({ setLoggedInUser }) {
+export function Login({loggedInUser, setLoggedInUser} ) {
   const navigate = useNavigate();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [failedLogin, setFailedLogin] = useState(false);
+  const [allUsers, setAllUsers] = useState([])
+
 
   const handleSubmit = (e) => {
     e.preventDefault();

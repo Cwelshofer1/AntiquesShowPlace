@@ -1,33 +1,38 @@
-import { useEffect, useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
+import { useEffect, useState, useCallback } from 'react'
 import './App.css'
 import { tryGetLoggedInUser } from './components/managers/authmanager';
-import { Navbar, Spinner } from 'reactstrap';
 import ApplicationViews from './ApplicationViews';
 import NavBar from './Navbar';
+import { useLocation } from 'react-router-dom'; 
 
 function App() {
+
   const [loggedInUser, setLoggedInUser] = useState();
+  const location = useLocation(); 
+
+  const memoizedSetLoggedInUser = useCallback((user) => {
+    setLoggedInUser(user);
+  }, []);
 
   useEffect(() => {
     if(loggedInUser !== undefined){
     tryGetLoggedInUser().then((user) => {
-      setLoggedInUser(user);
-    })}
-  }, []);
+      memoizedSetLoggedInUser(user);
+    });
+  }
+  }, [])
 
- 
-console.log(loggedInUser)
   return (
     
   <>
-  <NavBar loggedInUser={loggedInUser}
-      setLoggedInUser={setLoggedInUser}/>
+  {location.pathname !== '/login' && (
+    <NavBar loggedInUser={loggedInUser}
+        setLoggedInUser={memoizedSetLoggedInUser}/>
+  )}
       
     <ApplicationViews
       loggedInUser={loggedInUser}
-      setLoggedInUser={setLoggedInUser}
+      setLoggedInUser={memoizedSetLoggedInUser}
       />
   </>
   )

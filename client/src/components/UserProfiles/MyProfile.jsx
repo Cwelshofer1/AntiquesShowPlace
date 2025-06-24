@@ -30,9 +30,10 @@ export const MyProfile = (loggedInUser) => {
         GetUserProfiles(id).then(setAllUsers)
     }, [])
 
-    const handleUserDelete = (user) => {
-        DeleteUser(user).then(logout()).then(() => {
-                setOpen(false);
+    const handleUserDelete = (userProfile) => {
+        console.log("Deleting user with ID:", userProfile.id);
+        DeleteUser(userProfile.id).then(() => logout()).then(() => {
+                  setOpen(false);
                   navigate('/login')
                   setLoggedInUser(null);
                   setOpen(false);
@@ -55,8 +56,8 @@ export const MyProfile = (loggedInUser) => {
                         alt="Header"
                         style={{ width: "150px", height: "100px", objectFit: "cover", marginRight: "15px" }}
                     />
-                    <button onClick={() => handleUserDelete(userProfile.id)}>Delete Profile</button>
-                    <Link to={`editProfile/${userProfile.id}`}>
+                    <button onClick={() => handleUserDelete(userProfile)}>Delete Profile</button>
+                    <Link to={`/myprofile/editprofile/${userProfile.id}`}>
                         <button >Edit Profile </button>
                     </Link>
                 </div>

@@ -61,7 +61,7 @@ public class UserProfileController : ControllerBase
 
         if (user != null)
         {
-           
+
             var result = await _userManager.DeleteAsync(user);
 
             if (!result.Succeeded)
@@ -69,9 +69,37 @@ public class UserProfileController : ControllerBase
                 return BadRequest(result.Errors);
             }
         }
-        
+
         _dbContext.UserProfiles.Remove(userProfile);
         _dbContext.SaveChanges();
+        return NoContent();
+    }
+    
+      [HttpPut("{id}")]
+
+    public IActionResult UpdateUserProfile(UserProfile userprofile, int id)
+    {
+        UserProfile ProfileToUpdate = _dbContext.UserProfiles.SingleOrDefault(t => t.Id == id);
+        if (ProfileToUpdate == null)
+        {
+            return NotFound();
+        }
+        else if (id != userprofile.Id)
+        {
+            return BadRequest();
+        }
+
+        //These are the only properties that we want to make editable
+        ProfileToUpdate.Name = userprofile.Name;
+        ProfileToUpdate.Email = userprofile.Email;
+        ProfileToUpdate.UserDescription = userprofile.UserDescription;
+        ProfileToUpdate.UserPhotoUrl = userprofile.UserPhotoUrl;
+
+
+
+
+        _dbContext.SaveChanges();
+
         return NoContent();
     }
 }

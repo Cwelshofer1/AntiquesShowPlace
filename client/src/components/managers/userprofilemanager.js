@@ -15,3 +15,13 @@ export const DeleteUser = (id) => {
     }
   )
 }
+
+export const UpdateProfile = (userProfile) => {
+  return fetch(`${apiUrl}/${userProfile.id}`, {
+    method: "PUT",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(userProfile),
+  });
+};

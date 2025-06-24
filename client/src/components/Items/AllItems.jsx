@@ -2,12 +2,15 @@ import { useState, useEffect } from "react";
 import { GetItems } from "../managers/itemManager";
 import { GetUserProfiles } from "../managers/userprofilemanager";
 import { GetCategories } from "../managers/categorymanager";
+import { tryGetLoggedInUser } from "../managers/authmanager";
 import { Link } from "react-router-dom";
 export const AllItems = () => {
 
     const [allItems, setAllItems] = useState([])
     const [allUsers, setAllUsers] = useState([])
     const [allCategories, setAllCategories] = useState([])
+  
+    
 
     useEffect(() => {
         GetItems().then(setAllItems)

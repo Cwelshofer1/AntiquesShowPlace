@@ -23,11 +23,12 @@ export default function NavBar({ loggedInUser, setLoggedInUser }) {
 
   return (
     <div>
+      
       <Navbar light fixed="true" expand="lg">
         <NavbarBrand className="navbar-brand" tag={RRNavLink} to="/">
           Antiques ShowPlace
         </NavbarBrand>
-        {loggedInUser ? (
+        {loggedInUser && loggedInUser !== undefined ? (
           <>
           
               <NavLink tag={RRNavLink} to="/allitems">

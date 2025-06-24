@@ -5,7 +5,7 @@ import { GetCommentById, UpdateComment } from "../managers/commentmanager"
 import { GetUserById } from "../managers/userprofilemanager"
 
 
-export const EditComment = (loggedInUser) => {
+export const EditProfile = (loggedInUser) => {
 
     const [userProfile, setUserProfile] = useState([]);
    
@@ -25,26 +25,26 @@ export const EditComment = (loggedInUser) => {
 
     const handleSave = (evt) => {
         evt.preventDefault()
-        const editedComment = {
-            id: comment.id,
-            message: comment.message,          
+        const editedProfile = {
+            id: userProfile.id,
+            name: userProfile.name,          
         }
-        UpdateComment(editedComment).then(() => {
+        Upd(editedProfile).then(() => {
             navigate(-1)
         })
     }
 
     return (
         <form>
-            <h2 className="header">Edit Comment</h2>
+            <h2 className="header">Edit Profile</h2>
             <div className="form-container">
                 <div className="form-box">
                     <fieldset>
                         <div className="form-group">
-                            <label>Your Message: </label>
+                            <label>Profile name </label>
                             <input
                                 type="text"
-                                value={comment?.message || ""}
+                                value={userProfile?.name || ""}
                                 onChange={(evt) => {
                                     const copy = { ...comment }
                                     copy.message = evt.target.value

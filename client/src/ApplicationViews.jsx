@@ -14,6 +14,7 @@ import { EditComment } from "./components/comments/EditComment";
 import { AllUsers } from "./components/UserProfiles/AllUserProfiles";
 import { UserDetails } from "./components/UserProfiles/UserDetails";
 import { MyProfile } from "./components/UserProfiles/MyProfile";
+import { EditProfile } from "./components/UserProfiles/EditProfile";
 
 
 
@@ -24,78 +25,138 @@ export default function ApplicationViews({ loggedInUser, setLoggedInUser, handle
         <Route
           index
           element={
-            <AuthorizedRoute loggedInUser={loggedInUser}>
+            <AuthorizedRoute setLoggedInUser={setLoggedInUser} loggedInUser={loggedInUser}>
               <Home />
             </AuthorizedRoute>
           }
         />
         <Route
           path="login"
-          element={<Login setLoggedInUser={setLoggedInUser} handleLogin={handleLogin} />}
+          element={<Login setLoggedInUser={setLoggedInUser} loggedInUser={loggedInUser} />}
         />
 
         <Route
           path="register"
-          element={<Register setLoggedInUser={setLoggedInUser} />}
+          element={<Register setLoggedInUser={setLoggedInUser} loggedInUser={loggedInUser} />}
         />
 
         <Route
           path="allitems"
-          element={<AllItems setLoggedInUser={setLoggedInUser} />}
+          element={
+            <AuthorizedRoute setLoggedInUser={setLoggedInUser} loggedInUser={loggedInUser}>
+              <AllItems setLoggedInUser={setLoggedInUser} loggedInUser={loggedInUser} />
+            </AuthorizedRoute>
+          }
         />
-
         <Route
           path="additem"
-          element={<AddItem setLoggedInUser={setLoggedInUser} loggedInUser={loggedInUser} />}
+          element={
+            <AuthorizedRoute setLoggedInUser={setLoggedInUser} loggedInUser={loggedInUser}>
+              <AddItem setLoggedInUser={setLoggedInUser} loggedInUser={loggedInUser} />
+            </AuthorizedRoute>
+          }
         />
-
         <Route
           path="myitems"
-          element={<MyItems setLoggedInUser={setLoggedInUser} loggedInUser={loggedInUser} />}
+          element={
+            <AuthorizedRoute setLoggedInUser={setLoggedInUser} loggedInUser={loggedInUser}>
+              <MyItems setLoggedInUser={setLoggedInUser} loggedInUser={loggedInUser} />
+            </AuthorizedRoute>
+          }
         />
+
 
         <Route
           path="myitems/edititem/:id"
-          element={<EditItem setLoggedInUser={setLoggedInUser} loggedInUser={loggedInUser} />}
+          element={
+            <AuthorizedRoute setLoggedInUser={setLoggedInUser} loggedInUser={loggedInUser}>
+              <EditItem setLoggedInUser={setLoggedInUser} loggedInUser={loggedInUser} />
+            </AuthorizedRoute>
+          }
         />
 
         <Route
           path="itemdetails/:id/edititem/:id"
-          element={<EditItem setLoggedInUser={setLoggedInUser} loggedInUser={loggedInUser} />}
+          element={
+            <AuthorizedRoute setLoggedInUser={setLoggedInUser} loggedInUser={loggedInUser}>
+              <EditItem setLoggedInUser={setLoggedInUser} loggedInUser={loggedInUser} />
+            </AuthorizedRoute>
+          }
         />
+
         <Route
           path="addcategory"
-          element={<NewCategoryForm setLoggedInUser={setLoggedInUser} loggedInUser={loggedInUser} />}
+          element={
+            <AuthorizedRoute setLoggedInUser={setLoggedInUser} loggedInUser={loggedInUser}>
+              <NewCategoryForm setLoggedInUser={setLoggedInUser} loggedInUser={loggedInUser} />
+            </AuthorizedRoute>
+          }
         />
 
         <Route
           path="itemdetails/:id"
-          element={<ItemDetails setLoggedInUser={setLoggedInUser} loggedInUser={loggedInUser} />}
+          element={
+            <AuthorizedRoute setLoggedInUser={setLoggedInUser} loggedInUser={loggedInUser}>
+              <ItemDetails setLoggedInUser={setLoggedInUser} loggedInUser={loggedInUser} />
+            </AuthorizedRoute>
+          }
         />
+
 
         <Route
           path="itemdetails/:id/addcomment"
-          element={<AddComment setLoggedInUser={setLoggedInUser} loggedInUser={loggedInUser} />}
+          element={
+            <AuthorizedRoute setLoggedInUser={setLoggedInUser} loggedInUser={loggedInUser}>
+              <AddComment setLoggedInUser={setLoggedInUser} loggedInUser={loggedInUser} />
+            </AuthorizedRoute>
+          }
         />
-
+        
         <Route
           path="itemdetails/:id/editcomment/:id"
-          element={<EditComment setLoggedInUser={setLoggedInUser} loggedInUser={loggedInUser} />}
+          element={
+            <AuthorizedRoute setLoggedInUser={setLoggedInUser} loggedInUser={loggedInUser}>
+              <EditComment setLoggedInUser={setLoggedInUser} loggedInUser={loggedInUser} />
+            </AuthorizedRoute>
+          }
+        />
+
+          
+         <Route
+          path="allusers"
+          element={
+            <AuthorizedRoute setLoggedInUser={setLoggedInUser} loggedInUser={loggedInUser}>
+              <AllUsers setLoggedInUser={setLoggedInUser} loggedInUser={loggedInUser} />
+            </AuthorizedRoute>
+          }
+        />
+         <Route
+          path="userdetails/id"
+          element={
+            <AuthorizedRoute setLoggedInUser={setLoggedInUser} loggedInUser={loggedInUser}>
+              <UserDetails setLoggedInUser={setLoggedInUser} loggedInUser={loggedInUser} />
+            </AuthorizedRoute>
+          }
         />
 
         <Route
-          path="allusers"
-          element={<AllUsers setLoggedInUser={setLoggedInUser} loggedInUser={loggedInUser} />}
-        />
-         <Route
-          path="userdetails/:id"
-          element={<UserDetails setLoggedInUser={setLoggedInUser} loggedInUser={loggedInUser} />}
+          path="myprofile/:id"
+          element={
+            <AuthorizedRoute setLoggedInUser={setLoggedInUser} loggedInUser={loggedInUser}>
+              <MyProfile setLoggedInUser={setLoggedInUser} loggedInUser={loggedInUser} />
+            </AuthorizedRoute>
+          }
         />
 
-          <Route
-          path="myprofile/:id"
-          element={<MyProfile setLoggedInUser={setLoggedInUser} loggedInUser={loggedInUser} />}
+    <Route
+          path="myprofile/editprofile/:id"
+          element={
+            <AuthorizedRoute setLoggedInUser={setLoggedInUser} loggedInUser={loggedInUser}>
+              <EditProfile setLoggedInUser={setLoggedInUser} loggedInUser={loggedInUser} />
+            </AuthorizedRoute>
+          }
         />
+
       </Route>
     </Routes>
   );
