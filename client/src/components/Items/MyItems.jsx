@@ -53,31 +53,27 @@ export const MyItems = (loggedInUser) => {
         <h3>My Items</h3>
             {allItems.map((item) => (
                 <div key={item.id}>
+                    <div className="item-box">
+                        <img className="allitems-image"
+                            src={item.itemPhotoUrl}
+                            alt="Header"
+                            style={{ width: "200px", height: "150px", objectFit: "cover", marginRight: "15px" }}
+                        />
+                        <div className="my-items-content">
                     <div>Name: {item.name}</div>
-                    <div>Description: {item.description}</div>
-                    <div>Year Made: {item.yearMade}</div>
-                    <div>Item is an Antique?: {item.isAntique.toString()}</div>
-                    <div>Is for sell?: {item.isSeller.toString()}</div>
-                    <div>Sellers Price: {item.price}</div>
-                    {allUsers
-                        .filter((user) => user.id === item.userId)
-                        .map((user) => (
-                            <div key={user.id}>Seller: {user.name}</div>
-                        ))}
                     {allCategories
                         .filter((category) => category.id === item.categoryId)
                         .map((category) => (
                             <div key={category.id}>Category: {category.name}</div>
                         ))}
-                    <img
-                        src={item.itemPhotoUrl}
-                        alt="Header"
-                        style={{ width: "150px", height: "100px", objectFit: "cover", marginRight: "15px" }}
-                    />
+                        <div className="myitems-buttons">
                     <button onClick={() => handleItemDelete(item.id)}>Delete item</button>
                     <Link to={`edititem/${item.id}`}>
                         <button >Edit item </button>
                     </Link>
+                    </div>
+                     </div>
+                        </div>
                 </div>
             ))}
         </>

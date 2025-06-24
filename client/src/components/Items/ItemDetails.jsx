@@ -92,13 +92,17 @@ export const ItemDetails = () => {
                     <div>Description: {item.description}</div>
                     <div>Year Made: {item.yearMade}</div>
                     <div>Item is an Antique?: {item?.isAntique.toString()}</div>
+                    {item.isSeller === true ? (
+                        <>
                     <div>Is for sell?: {item?.isSeller.toString()}</div>
                     <div>Sellers Price: {item.price}</div>
+                    </>
+                    ) : ""}
 
                     {allUsers
                         .filter((user) => user.id === item.userId)
                         .map((user) => (
-                            <div key={user.id}>Seller: {user.name}</div>
+                            <div key={user.id}>Author: {user.name}</div>
                         ))}
                     {allCategories
                         .filter((category) => category.id === item.categoryId)

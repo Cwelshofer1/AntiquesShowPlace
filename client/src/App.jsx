@@ -8,7 +8,7 @@ import { useLocation } from 'react-router-dom';
 function App() {
 
   const [loggedInUser, setLoggedInUser] = useState();
-  const [loading, setLoading] = useState(true); // 1. Add loading state
+  const [loading, setLoading] = useState(true); 
   const location = useLocation();
 
   const memoizedSetLoggedInUser = useCallback((user) => {
@@ -18,21 +18,22 @@ function App() {
   
 
   useEffect(() => {
-    tryGetLoggedInUser().then((user) => { // Remove the conditional check here
+    tryGetLoggedInUser().then((user) => { 
       memoizedSetLoggedInUser(user);
-      setLoading(false); // 3. Set loading to false after auth check
+      setLoading(false); 
     });
   }, [])
 
   return (
     
   <>
+  <div className='background-img'>
   {location.pathname !== '/login' && (
     <NavBar loggedInUser={loggedInUser}
         setLoggedInUser={memoizedSetLoggedInUser}/>
   )}
       
-    {loading ? ( // 4. Conditionally render ApplicationViews
+    {loading ? ( 
       <div>Loading...</div>
     ) : (
       <ApplicationViews
@@ -40,6 +41,7 @@ function App() {
         setLoggedInUser={memoizedSetLoggedInUser}
         />
     )}
+    </div>
   </>
   )
   
