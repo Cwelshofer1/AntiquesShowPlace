@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { NavLink, NavLink as RRNavLink } from "react-router-dom";
+import { NavLink, NavLink as RRNavLink, useParams } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import {
   Button,
@@ -17,15 +17,18 @@ export default function NavBar({ loggedInUser, setLoggedInUser }) {
 
   const toggleNavbar = () => setOpen(!open);
 
+  const {id} = useParams()
+
   const navigate = useNavigate()
 
   return (
     <div>
+      
       <Navbar light fixed="true" expand="lg">
         <NavbarBrand className="navbar-brand" tag={RRNavLink} to="/">
           Antiques ShowPlace
         </NavbarBrand>
-        {loggedInUser ? (
+        {loggedInUser && loggedInUser !== undefined ? (
           <>
           
               <NavLink tag={RRNavLink} to="/allitems">
@@ -42,6 +45,14 @@ export default function NavBar({ loggedInUser, setLoggedInUser }) {
 
               <NavLink tag={RRNavLink} to="/addcategory">
                 <Button color="primary">Add Category</Button>
+              </NavLink>
+
+                 <NavLink tag={RRNavLink} to="/allusers">
+                <Button color="primary">All Users</Button>
+              </NavLink>
+
+                <NavLink tag={RRNavLink} to={`/myprofile/${loggedInUser.id}`}>
+                <Button color="primary">My Profile</Button>
               </NavLink>
 
 

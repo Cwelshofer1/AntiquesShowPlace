@@ -10,7 +10,7 @@ public class UserProfileDTO
     public string UserDescription { get; set; }
     public string UserPhotoUrl { get; set; }
     public string Password { get; set; }
-    public string userIdentityId { get; set; }
+    public string UserIdentityId { get; set; }
 
     
 

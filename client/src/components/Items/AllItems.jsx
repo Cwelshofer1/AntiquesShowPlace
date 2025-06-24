@@ -2,12 +2,15 @@ import { useState, useEffect } from "react";
 import { GetItems } from "../managers/itemManager";
 import { GetUserProfiles } from "../managers/userprofilemanager";
 import { GetCategories } from "../managers/categorymanager";
-
+import { tryGetLoggedInUser } from "../managers/authmanager";
+import { Link } from "react-router-dom";
 export const AllItems = () => {
 
     const [allItems, setAllItems] = useState([])
     const [allUsers, setAllUsers] = useState([])
     const [allCategories, setAllCategories] = useState([])
+  
+    
 
     useEffect(() => {
         GetItems().then(setAllItems)
@@ -26,6 +29,9 @@ export const AllItems = () => {
         <>
             {allItems.map((item) => (
                 <div key={item.id}>
+                    <Link  onClick={() => window.scrollTo(0, 0)}key={item.id} to={`/itemdetails/${item.id}`}>
+                        <div className="item-name">{item.name}</div>
+                         </Link>
                     <div>Name: {item.name}</div>
                     <div>Description: {item.description}</div>
                     <div>Year Made: {item.yearMade}</div>

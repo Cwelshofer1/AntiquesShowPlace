@@ -50,6 +50,7 @@ export const MyItems = (loggedInUser) => {
 
     return (
         <>
+        <h3>My Items</h3>
             {allItems.map((item) => (
                 <div key={item.id}>
                     <div>Name: {item.name}</div>
@@ -75,7 +76,7 @@ export const MyItems = (loggedInUser) => {
                     />
                     <button onClick={() => handleItemDelete(item.id)}>Delete item</button>
                     <Link to={`edititem/${item.id}`}>
-                        <button>Edit item </button>
+                        <button >Edit item </button>
                     </Link>
                 </div>
             ))}

@@ -1,35 +1,45 @@
-import { useEffect, useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
+import { useEffect, useState, useCallback } from 'react'
 import './App.css'
 import { tryGetLoggedInUser } from './components/managers/authmanager';
-import { Navbar, Spinner } from 'reactstrap';
 import ApplicationViews from './ApplicationViews';
 import NavBar from './Navbar';
+import { useLocation } from 'react-router-dom'; 
 
 function App() {
-  const [loggedInUser, setLoggedInUser] = useState();
 
-  useEffect(() => {
-    tryGetLoggedInUser().then((user) => {
-      setLoggedInUser(user);
-    })
+  const [loggedInUser, setLoggedInUser] = useState();
+  const [loading, setLoading] = useState(true); // 1. Add loading state
+  const location = useLocation();
+
+  const memoizedSetLoggedInUser = useCallback((user) => {
+    setLoggedInUser(user);
   }, []);
 
-  if(loggedInUser === undefined) {
-    return <div>Page is loading...</div>
-  }
-console.log(loggedInUser)
+  
+
+  useEffect(() => {
+    tryGetLoggedInUser().then((user) => { // Remove the conditional check here
+      memoizedSetLoggedInUser(user);
+      setLoading(false); // 3. Set loading to false after auth check
+    });
+  }, [])
+
   return (
     
   <>
-  <NavBar loggedInUser={loggedInUser}
-      setLoggedInUser={setLoggedInUser}/>
+  {location.pathname !== '/login' && (
+    <NavBar loggedInUser={loggedInUser}
+        setLoggedInUser={memoizedSetLoggedInUser}/>
+  )}
       
-    <ApplicationViews
-      loggedInUser={loggedInUser}
-      setLoggedInUser={setLoggedInUser}
-      />
+    {loading ? ( // 4. Conditionally render ApplicationViews
+      <div>Loading...</div>
+    ) : (
+      <ApplicationViews
+        loggedInUser={loggedInUser}
+        setLoggedInUser={memoizedSetLoggedInUser}
+        />
+    )}
   </>
   )
   

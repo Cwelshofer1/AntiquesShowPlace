@@ -3,6 +3,7 @@ import { GetItemById, UpdateItem } from "../managers/itemManager"
 import { useNavigate } from "react-router-dom"
 import { useParams } from "react-router-dom"
 import { GetCategories } from "../managers/categorymanager"
+import { useLocation } from "react-router-dom";
 
 
 export const EditItem = (loggedInUser) => {
@@ -10,7 +11,10 @@ export const EditItem = (loggedInUser) => {
     const [item, setItem] = useState({ isAntique: false, isSeller: false });
     const [category, setAllCategories] = useState([])
 
+    const location = useLocation();
+
     const { id } = useParams()
+
 
 
     const navigate = useNavigate()
@@ -42,13 +46,17 @@ export const EditItem = (loggedInUser) => {
 
         }
         UpdateItem(editedItem).then(() => {
-            navigate(`/myitems`)
+            if (location.pathname.includes("itemdetails")) {
+                navigate(`/itemdetails/${id}/`)
+            } else {
+                navigate(`/myitems`)
+            }
         })
     }
 
     return (
         <form>
-            <h2 className="header">Add a new Item to the list!</h2>
+            <h2 className="header">Edit Item</h2>
             <div className="form-container">
                 <div className="form-box">
                     <fieldset>
@@ -208,7 +216,7 @@ export const EditItem = (loggedInUser) => {
 
                     <div className="form-group">
                         <button onClick={handleSave}
-                            className="new-tag-button">Save Antique</button>
+                            className="new-antique-button">Save Antique</button>
                     </div>
 
                 </div>

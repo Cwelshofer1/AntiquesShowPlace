@@ -12,17 +12,18 @@ export const NewCategoryForm = () => {
     const navigate = useNavigate()
 
     useEffect(() => {
-            GetCategories().then(setCategoryList)
-        }, [categoryList])
+        GetCategories().then(setCategoryList)
+    }, [])
+
 
     const handleSave = (evt) => {
         evt.preventDefault()
-         const newCategory = {
+        const newCategory = {
             name: categorys.name
         }
         CreateCategory(newCategory).then(() => {
-            setAllCategories("")
-            
+            GetCategories().then(setCategoryList).then(setAllCategories(""))
+
         })
     }
 
@@ -56,9 +57,9 @@ export const NewCategoryForm = () => {
                     </fieldset>
                     <fieldset>
                         <div className="form-group">
-                            
+
                             <button onClick={handleSave}
-                                className="new-tag-button">Save Category</button>
+                                className="new-category-button">Save Category</button>
                         </div>
                     </fieldset>
                 </div>

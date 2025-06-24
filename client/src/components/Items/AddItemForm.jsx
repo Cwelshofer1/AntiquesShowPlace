@@ -144,6 +144,15 @@ export const AddItem = (loggedInUser) => {
 
                         )}
                     </fieldset>
+                    {item.itemPhotoUrl  ? (
+                        <img
+                            src={item.itemPhotoUrl}
+                            alt="Item"
+                            style={{ width: "150px", height: "100px", objectFit: "cover", marginRight: "15px" }}
+                        />
+                    ) : (
+                        <></>
+                    )}
                     <fieldset>
                         <div className="form-group">
                             <label>Item image: </label>

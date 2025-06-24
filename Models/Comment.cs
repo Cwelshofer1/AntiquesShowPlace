@@ -13,6 +13,6 @@ public class Comment
     [Required]
     public int UserId { get; set; }
      [Required]
-    public int CommentId { get; set; }
+    public int ItemId { get; set; }
 
 }
