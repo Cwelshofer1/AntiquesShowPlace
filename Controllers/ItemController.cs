@@ -97,7 +97,7 @@ public class ItemController : ControllerBase
             return BadRequest();
         }
 
-        //These are the only properties that we want to make editable
+
         ItemToUpdate.Name = item.Name;
         ItemToUpdate.Description = item.Description;
         ItemToUpdate.YearMade = item.YearMade;

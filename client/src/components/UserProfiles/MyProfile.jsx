@@ -31,7 +31,6 @@ export const MyProfile = (loggedInUser) => {
     }, [])
 
     const handleUserDelete = (userProfile) => {
-        console.log("Deleting user with ID:", userProfile.id);
         DeleteUser(userProfile.id).then(() => logout()).then(() => {
                   setOpen(false);
                   navigate('/login')
@@ -52,7 +51,7 @@ export const MyProfile = (loggedInUser) => {
                     <div>Description: {userProfile.userDescription}</div>
                     <div>Email: {userProfile.email}</div>
                     <img
-                        src={userProfile.itemPhotoUrl}
+                        src={userProfile.userPhotoUrl}
                         alt="Header"
                         style={{ width: "150px", height: "100px", objectFit: "cover", marginRight: "15px" }}
                     />

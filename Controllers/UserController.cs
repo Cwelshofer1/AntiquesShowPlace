@@ -76,10 +76,10 @@ public class UserProfileController : ControllerBase
     }
     
       [HttpPut("{id}")]
-
-    public IActionResult UpdateUserProfile(UserProfile userprofile, int id)
-    {
-        UserProfile ProfileToUpdate = _dbContext.UserProfiles.SingleOrDefault(t => t.Id == id);
+    
+        public async Task<IActionResult> UpdateUserProfile(UserProfile userprofile, int id)
+        {
+        UserProfile ProfileToUpdate = _dbContext.UserProfiles.SingleOrDefault(up => up.Id == id);
         if (ProfileToUpdate == null)
         {
             return NotFound();
@@ -89,9 +89,21 @@ public class UserProfileController : ControllerBase
             return BadRequest();
         }
 
-        //These are the only properties that we want to make editable
+       
         ProfileToUpdate.Name = userprofile.Name;
-        ProfileToUpdate.Email = userprofile.Email;
+        
+        
+        if (ProfileToUpdate.Email != userprofile.Email)
+            {
+                var userIdentity = await _userManager.FindByIdAsync(ProfileToUpdate.UserIdentityId);
+                if (userIdentity != null)
+                {
+                    userIdentity.Email = userprofile.Email;
+                    userIdentity.UserName = userprofile.Email;
+                    await _userManager.UpdateAsync(userIdentity);
+                }
+                ProfileToUpdate.Email = userprofile.Email;
+            }
         ProfileToUpdate.UserDescription = userprofile.UserDescription;
         ProfileToUpdate.UserPhotoUrl = userprofile.UserPhotoUrl;
 

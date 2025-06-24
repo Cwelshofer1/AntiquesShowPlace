@@ -19,7 +19,7 @@ public class Item
     public bool IsSeller { get; set; }
 
     public decimal Price { get; set; }
-    [Required]
+    
     public string ItemPhotoUrl { get; set; }
     [Required]
     public int UserId { get; set; }

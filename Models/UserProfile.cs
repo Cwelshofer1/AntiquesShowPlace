@@ -14,7 +14,7 @@ public class UserProfile
     public string UserDescription { get; set; }
     
     public string UserPhotoUrl { get; set; }
-    [Required]
+    
     public string Password { get; set; }
     public string UserIdentityId { get; set; }
 

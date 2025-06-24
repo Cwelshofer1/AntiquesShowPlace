@@ -131,7 +131,7 @@ export default function ApplicationViews({ loggedInUser, setLoggedInUser, handle
           }
         />
          <Route
-          path="userdetails/id"
+          path="userdetails/:id"
           element={
             <AuthorizedRoute setLoggedInUser={setLoggedInUser} loggedInUser={loggedInUser}>
               <UserDetails setLoggedInUser={setLoggedInUser} loggedInUser={loggedInUser} />
