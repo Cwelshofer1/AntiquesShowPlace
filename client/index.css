@@ -1,0 +1,5 @@
+.background-img {
+  background-image: url("./src/lightsbackground4.jpg");
+  background-size: 100% auto; /* Full width, auto height */
+}
+

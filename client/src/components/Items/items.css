@@ -49,3 +49,57 @@
     flex-direction: column;
     gap: 8px;
 }
+
+.add-item-box {
+    display: flex;
+    flex-direction: column;
+    align-items: center; 
+    border: 2px solid #333;
+    border-radius: 8px;
+    padding: 15px;
+    margin-top: 15px;
+    gap: 15px;
+    opacity: 1.0;
+
+}
+
+input[type=text], [type=number], [type=checkbox], [type=image]
+{
+    height: 20px;
+    margin: 10px;
+    border-radius: 10px; 
+}
+
+select {
+    height: 20px;
+    margin: 10px;
+    border-radius: 10px; 
+}
+
+.add-item-button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 15px 30px;
+    border-radius: 25px;
+    font-size: 1.1rem;
+    font-weight: bold;
+    cursor: pointer;
+    margin-top: 20px;
+    transition: background-color 0.3s ease;
+}
+
+@media (max-width: 768px) {
+    .item-box {
+        padding: 15px;
+        margin: 0 10px;
+    }
+    
+    .header {
+        font-size: 1.5rem;
+    }
+
+    .all-items-header {
+        font-size: 100px;
+    }
+} 

@@ -93,7 +93,7 @@ export const EditProfile = (loggedInUser) => {
                            <img
                         src={userProfile?.userPhotoUrl}
                         alt="UserPhotoUrl"
-                        style={{ width: "150px", height: "100px", objectFit: "cover", marginRight: "15px" }}
+                        style={{ width: "200px", height: "150px", objectFit: "cover", marginRight: "15px" }}
                     />
                     <fieldset>
                         <div className="form-group">

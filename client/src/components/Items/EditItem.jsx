@@ -59,7 +59,7 @@ export const EditItem = (loggedInUser) => {
             <h2 className="header">Edit Item</h2>
             <div className="form-container">
                 <div className="form-box">
-                    <fieldset>
+              
                         <div className="form-group">
                             <label>Name:</label>
                             <input
@@ -73,8 +73,8 @@ export const EditItem = (loggedInUser) => {
                                 required
                                 className="form-container" />
                         </div>
-                    </fieldset>
-                    <fieldset>
+               
+                 
                         <div className="form-group">
                             <label>Description:</label>
                             <input
@@ -88,8 +88,8 @@ export const EditItem = (loggedInUser) => {
                                 required
                                 className="form-container" />
                         </div>
-                    </fieldset>
-                    <fieldset>
+                    
+                 
                         <div className="form-group">
                             <label>Year Made:</label>
                             <input
@@ -104,9 +104,9 @@ export const EditItem = (loggedInUser) => {
                                 required
                                 className="form-container" />
                         </div>
-                    </fieldset>
-                    <fieldset>
-                        <fieldset>
+                    
+                  
+                       
                             <div className="form-group">
                                 <label>Is it a antique? (Over 100 years old?):</label>
                                 <input
@@ -120,8 +120,8 @@ export const EditItem = (loggedInUser) => {
                                     required
                                     className="form-container" />
                             </div>
-                        </fieldset>
-                        <fieldset>
+                        
+                       
                             <div className="form-group">
                                 <label>Do you want to post this item as for sale?:</label>
                                 <input
@@ -135,11 +135,11 @@ export const EditItem = (loggedInUser) => {
                                     required
                                     className="form-container" />
                             </div>
-                        </fieldset>
+                        
 
                         {item.isSeller === true ? (
                             <div>
-                                <fieldset>
+                            
                                     <div className="form-group">
                                         <label>Price: </label>
                                         <input
@@ -154,20 +154,20 @@ export const EditItem = (loggedInUser) => {
                                             required
                                             className="form-container" />
                                     </div>
-                                </fieldset>
+                                
 
                             </div>
                         ) : (
                             <></>
 
                         )}
-                    </fieldset>
+                  
                     <img
                         src={item?.itemPhotoUrl}
                         alt="Item"
-                        style={{ width: "150px", height: "100px", objectFit: "cover", marginRight: "15px" }}
+                        style={{ width: "200px", height: "150px", objectFit: "cover", marginRight: "15px" }}
                     />
-                    <fieldset>
+                   
                         <div className="form-group">
                             <label>Item image: </label>
                             <label htmlFor="file-upload" className="custom-file-upload">
@@ -193,7 +193,7 @@ export const EditItem = (loggedInUser) => {
                                 }}
                             />
                         </div>
-                    </fieldset>
+                 
 
                     <select
                         value={item?.categoryId || 0}

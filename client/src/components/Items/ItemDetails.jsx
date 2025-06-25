@@ -95,7 +95,7 @@ export const ItemDetails = () => {
                     {item.isSeller === true ? (
                         <>
                     <div>Is for sell?: {item?.isSeller.toString()}</div>
-                    <div>Sellers Price: {item.price}</div>
+                    <div>Sellers Price: ${item.price}</div>
                     </>
                     ) : ""}
 
@@ -112,7 +112,7 @@ export const ItemDetails = () => {
                     <img
                         src={item.itemPhotoUrl}
                         alt="Header"
-                        style={{ width: "150px", height: "100px", objectFit: "cover", marginRight: "15px" }}
+                        style={{ width: "200px", height: "150px", objectFit: "cover", marginRight: "15px" }}
                     />
                     <div></div>
 
@@ -136,7 +136,11 @@ export const ItemDetails = () => {
                                     .map((user) => (
                                         <div key={user.id}>
                                             <div key={user.id}>Author:  {user.name}</div>
-                                            <div>Date Posted: {comment.datePosted}</div>
+                                            <div>Date Posted: {new Date(comment.datePosted).toLocaleDateString('en-US', {
+                                              year: 'numeric',
+                                              month: '2-digit',
+                                              day: '2-digit',
+                                            }).replace(/(\d{2})\/(\d{2})\/(\d{4})/, '$3/$2/$1')}</div>
                                             {commentLikes.filter((commentlike) => commentlike.commentId === comment.id)
                                                 .length > 0 ? (
                                                 <div>

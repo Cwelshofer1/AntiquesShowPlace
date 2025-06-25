@@ -46,19 +46,27 @@ export const MyProfile = (loggedInUser) => {
         <> {loggedInUser.loggedInUser.id === userProfile.id ? (
             <>
                 <h3>My Profile</h3>
+                
                 <div key={userProfile.id}>
+                    <div className="my-profile-box">
+                    <div className="my-profile-info">
                     <div>Name: {userProfile.name}</div>
                     <div>Description: {userProfile.userDescription}</div>
                     <div>Email: {userProfile.email}</div>
+                    <div className="my-profile-img">
                     <img
                         src={userProfile.userPhotoUrl}
                         alt="Header"
                         style={{ width: "150px", height: "150px", objectFit: "cover", marginRight: "15px" }}
                     />
+                    </div>
+                     </div>
+                   
                     <button onClick={() => handleUserDelete(userProfile)}>Delete Profile</button>
                     <Link to={`/myprofile/editprofile/${userProfile.id}`}>
                         <button >Edit Profile </button>
                     </Link>
+                </div>
                 </div>
             </>
         ) : (

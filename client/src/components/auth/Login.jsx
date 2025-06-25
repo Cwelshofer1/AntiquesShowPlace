@@ -3,6 +3,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { login } from "../managers/authmanager";
 import { Button, FormFeedback, FormGroup, Input, Label } from "reactstrap";
 import { GetUserProfiles } from "../managers/userprofilemanager";
+import "./auth.css"
 
 export function Login({loggedInUser, setLoggedInUser} ) {
   const navigate = useNavigate();
@@ -25,10 +26,13 @@ export function Login({loggedInUser, setLoggedInUser} ) {
   };
 
   return (
-    <div className="container" style={{ maxWidth: "500px" }}>
+    <>
+    <h3>Antiques Showcase</h3>
+    <div className="login-box">
       <h3>Login</h3>
+      <div className="login-content">
       <FormGroup>
-        <Label>Email</Label>
+        <Label>Email: </Label>
         <Input
           invalid={failedLogin}
           type="text"
@@ -40,7 +44,7 @@ export function Login({loggedInUser, setLoggedInUser} ) {
         />
       </FormGroup>
       <FormGroup>
-        <Label>Password</Label>
+        <Label>Password: </Label>
         <Input
           invalid={failedLogin}
           type="password"
@@ -50,15 +54,18 @@ export function Login({loggedInUser, setLoggedInUser} ) {
             setPassword(e.target.value);
           }}
         />
-        
       </FormGroup>
-
+      </div>
+      </div>
+          <div className="login-button">
       <Button color="primary" onClick={handleSubmit}>
         Login
       </Button>
+      </div>
       <p>
         Not signed up? Register <Link to="/register">here</Link>
       </p>
-    </div>
+    
+    </>
   );
 }

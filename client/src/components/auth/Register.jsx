@@ -44,6 +44,7 @@ export default function Register({ setLoggedInUser }) {
     
     <div className="container" style={{ maxWidth: "500px" }}>
       <h3>Sign Up</h3>
+      <div className="login-box">
       <FormGroup>
         <Label>Name</Label>
         <Input
@@ -93,7 +94,7 @@ export default function Register({ setLoggedInUser }) {
         <img
           src={userPhotoUrl}
           alt="Item"
-          style={{ width: "150px", height: "100px", objectFit: "cover", marginRight: "15px" }}
+          style={{ width: "200px", height: "150px", objectFit: "cover", marginRight: "15px" }}
         />
         ) : (
           <></>
@@ -138,6 +139,7 @@ export default function Register({ setLoggedInUser }) {
       <p>
         Already signed up? Log in <Link to="/login">here</Link>
       </p>
+      </div>
     </div>
   );
 }
