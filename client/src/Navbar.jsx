@@ -11,6 +11,7 @@ import {
   NavItem,
 } from "reactstrap";
 import { logout } from "./components/managers/authmanager";
+import "./navbar.css"
 
 export default function NavBar({ loggedInUser, setLoggedInUser }) {
   const [open, setOpen] = useState(false);
@@ -23,13 +24,13 @@ export default function NavBar({ loggedInUser, setLoggedInUser }) {
 
   return (
     <div>
-      
+      <div className="navbar-container">
       <Navbar light fixed="true" expand="lg">
         <NavbarBrand className="navbar-brand" tag={RRNavLink} to="/">
-          Antiques ShowPlace
+        
         </NavbarBrand>
         {loggedInUser && loggedInUser !== undefined ? (
-          <>
+          <div className="navbar-list">
           
               <NavLink tag={RRNavLink} to="/allitems">
                 <Button color="primary">All Items</Button>
@@ -70,12 +71,13 @@ export default function NavBar({ loggedInUser, setLoggedInUser }) {
             >
               Logout
             </Button>
-          </>
+          </div>
         ) : (
          <div></div>
         )}
      
       </Navbar>
+    </div>
     </div>
   );
 }

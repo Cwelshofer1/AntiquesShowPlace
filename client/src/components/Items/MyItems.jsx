@@ -19,7 +19,7 @@ export const MyItems = (loggedInUser) => {
         GetUserProfiles().then(setAllUsers)
     }, [])
 
-     useEffect(() => {
+    useEffect(() => {
         GetCategories().then(setAllCategories)
     }, [])
 
@@ -50,30 +50,37 @@ export const MyItems = (loggedInUser) => {
 
     return (
         <>
-        <h3>My Items</h3>
+            <h3>My Items</h3>
             {allItems.map((item) => (
                 <div key={item.id}>
                     <div className="item-box">
                         <img className="allitems-image"
                             src={item.itemPhotoUrl}
                             alt="Header"
-                            style={{ width: "200px", height: "150px", objectFit: "cover", marginRight: "15px" }}
+                            style={{ width: "250px", height: "200px", objectFit: "cover", marginRight: "15px" }}
                         />
                         <div className="my-items-content">
-                    <div>Name: {item.name}</div>
-                    {allCategories
-                        .filter((category) => category.id === item.categoryId)
-                        .map((category) => (
-                            <div key={category.id}>Category: {category.name}</div>
-                        ))}
-                        <div className="myitems-buttons">
-                    <button onClick={() => handleItemDelete(item.id)}>Delete item</button>
-                    <Link to={`edititem/${item.id}`}>
-                        <button >Edit item </button>
-                    </Link>
-                    </div>
-                     </div>
+                            <div className="item-text">
+                                <div className="my-items-info">
+                                    <Link onClick={() => window.scrollTo(0, 0)} key={item.id} to={`/itemdetails/${item.id}`}>
+                                    <div>{item.name}</div>
+                                    </Link>
+                                    {allCategories
+                                        .filter((category) => category.id === item.categoryId)
+                                        .map((category) => (
+                                            <div key={category.id}>Category: {category.name}</div>
+                                        ))}
+                                </div>
+                            </div>
+
+                            <div className="myitems-buttons">
+                                <button onClick={() => handleItemDelete(item.id)}>Delete item</button>
+                                <Link to={`edititem/${item.id}`}>
+                                    <button >Edit item </button>
+                                </Link>
+                            </div>
                         </div>
+                    </div>
                 </div>
             ))}
         </>

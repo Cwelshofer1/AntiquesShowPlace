@@ -53,7 +53,7 @@ export const MyProfile = (loggedInUser) => {
                     <img
                         src={userProfile.userPhotoUrl}
                         alt="Header"
-                        style={{ width: "150px", height: "100px", objectFit: "cover", marginRight: "15px" }}
+                        style={{ width: "150px", height: "150px", objectFit: "cover", marginRight: "15px" }}
                     />
                     <button onClick={() => handleUserDelete(userProfile)}>Delete Profile</button>
                     <Link to={`/myprofile/editprofile/${userProfile.id}`}>

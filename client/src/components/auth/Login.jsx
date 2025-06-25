@@ -50,7 +50,7 @@ export function Login({loggedInUser, setLoggedInUser} ) {
             setPassword(e.target.value);
           }}
         />
-        <FormFeedback>Login failed.</FormFeedback>
+        
       </FormGroup>
 
       <Button color="primary" onClick={handleSubmit}>

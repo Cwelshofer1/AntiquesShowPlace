@@ -18,16 +18,20 @@ function App() {
   
 
   useEffect(() => {
+    if(location.pathname !== '/login'){
     tryGetLoggedInUser().then((user) => { 
       memoizedSetLoggedInUser(user);
       setLoading(false); 
-    });
+    })}
+    else {
+      setLoading(false)
+    }
   }, [])
 
   return (
     
   <>
-  <div className='background-img'>
+  
   {location.pathname !== '/login' && (
     <NavBar loggedInUser={loggedInUser}
         setLoggedInUser={memoizedSetLoggedInUser}/>
@@ -41,7 +45,7 @@ function App() {
         setLoggedInUser={memoizedSetLoggedInUser}
         />
     )}
-    </div>
+   
   </>
   )
   

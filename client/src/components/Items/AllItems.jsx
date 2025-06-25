@@ -36,7 +36,7 @@ export const AllItems = () => {
                         <img className="allitems-image"
                             src={item.itemPhotoUrl}
                             alt="Header"
-                            style={{ width: "200px", height: "150px", objectFit: "cover", marginRight: "15px" }}
+                            style={{ width: "250px", height: "200px", objectFit: "cover", marginRight: "15px" }}
                         />
                         <div className="item-content">
                             <Link onClick={() => window.scrollTo(0, 0)} key={item.id} to={`/itemdetails/${item.id}`}>

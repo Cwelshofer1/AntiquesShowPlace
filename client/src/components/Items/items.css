@@ -40,5 +40,12 @@
     display: flex;
     flex-direction: column;
     gap: 10px;
-    margin-left: auto;
+    
+}
+
+.my-items-info {
+      flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
 }
