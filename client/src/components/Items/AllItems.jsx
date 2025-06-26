@@ -36,21 +36,21 @@ export const AllItems = () => {
                         <img className="allitems-image"
                             src={item.itemPhotoUrl}
                             alt="Header"
-                            style={{ width: "200px", height: "150px", objectFit: "cover", marginRight: "15px" }}
+                            style={{ width: "250px", height: "200px", objectFit: "cover", marginRight: "15px" }}
                         />
                         <div className="item-content">
                             <Link onClick={() => window.scrollTo(0, 0)} key={item.id} to={`/itemdetails/${item.id}`}>
-                                <div className="item-name">{item.name}</div>
+                                <div className="item-name"><b>{item.name}</b></div>
                             </Link>
                             {allUsers
                                 .filter((user) => user.id === item.userId)
                                 .map((user) => (
-                                    <div key={user.id}>Seller: {user.name}</div>
+                                    <div  key={user.id}><b>Author:</b> {user.name}</div>
                                 ))}
                             {allCategories
                                 .filter((category) => category.id === item.categoryId)
                                 .map((category) => (
-                                    <div key={category.id}>Category: {category.name}</div>
+                                    <div key={category.id}><b>Category:</b> {category.name}</div>
                                 ))}
                                 </div>
                         </div>

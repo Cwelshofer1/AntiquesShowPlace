@@ -32,6 +32,7 @@ export function Login({loggedInUser, setLoggedInUser} ) {
       <h3>Login</h3>
       <div className="login-content">
       <FormGroup>
+        <div className="login-email">
         <Label>Email: </Label>
         <Input
           invalid={failedLogin}
@@ -42,8 +43,9 @@ export function Login({loggedInUser, setLoggedInUser} ) {
             setEmail(e.target.value);
           }}
         />
+        </div>
       </FormGroup>
-      <FormGroup>
+      <FormGroup> <div className="user-password-input">
         <Label>Password: </Label>
         <Input
           invalid={failedLogin}
@@ -54,11 +56,12 @@ export function Login({loggedInUser, setLoggedInUser} ) {
             setPassword(e.target.value);
           }}
         />
+        </div>
       </FormGroup>
       </div>
       </div>
           <div className="login-button">
-      <Button color="primary" onClick={handleSubmit}>
+      <Button className="login-btn" color="primary" onClick={handleSubmit}>
         Login
       </Button>
       </div>

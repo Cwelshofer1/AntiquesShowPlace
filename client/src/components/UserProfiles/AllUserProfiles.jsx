@@ -32,7 +32,7 @@ export const AllUsers = ({ loggedInUser }) => {
                         ) : null}
                         <div className="user-profile-names">
                         <Link onClick={() => window.scrollTo(0, 0)} to={`/userdetails/${user.id}`}>
-                            <div className="user-name">{user.name}</div>
+                            <h3 className="user-name"><b>{user.name}</b></h3>
                         </Link>
                         </div>
 

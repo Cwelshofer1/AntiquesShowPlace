@@ -41,10 +41,10 @@ export const EditProfile = (loggedInUser) => {
         <form>
             <h2 className="header">Edit Profile</h2>
             <div className="form-container">
-                <div className="form-box">
-                    <fieldset>
-                        <div className="form-group">
-                            <label>Profile name: </label>
+                <div className="my-edit-profile-box">
+                    
+                        <div className="form-group-profile">
+                            <label><b>Profile name:</b> </label>
                             <input
                                 type="text"
                                 value={userProfile?.name || ""}
@@ -56,11 +56,10 @@ export const EditProfile = (loggedInUser) => {
                                 required
                                 className="form-container" />
                         </div>
-                    </fieldset>
-
-                    <fieldset>
-                        <div className="form-group">
-                            <label>Email: </label>
+                   
+                    
+                        <div className="form-group-email">
+                            <label><b>Email:</b> </label>
                             <input
                                 type="text"
                                 value={userProfile?.email || ""}
@@ -72,11 +71,10 @@ export const EditProfile = (loggedInUser) => {
                                 required
                                 className="form-container" />
                         </div>
-                    </fieldset>
-
-                         <fieldset>
-                        <div className="form-group">
-                            <label>User Description: </label>
+                   
+                         
+                        <div className="user-description-profile">
+                            <label><b>User Description:</b> </label>
                             <input
                                 type="text"
                                 value={userProfile?.userDescription || ""}
@@ -88,16 +86,15 @@ export const EditProfile = (loggedInUser) => {
                                 required
                                 className="form-container" />
                         </div>
-                    </fieldset>
-
+                   
                            <img
                         src={userProfile?.userPhotoUrl}
                         alt="UserPhotoUrl"
                         style={{ width: "200px", height: "150px", objectFit: "cover", marginRight: "15px" }}
                     />
-                    <fieldset>
+                    
                         <div className="form-group">
-                            <label>User image: </label>
+                            <label><b>User image:</b> </label>
                             <label htmlFor="file-upload" className="custom-file-upload">
                                 {userProfile.userPhotoUrl ? "Change Image" : "Upload Image"}
                             </label>
@@ -121,14 +118,13 @@ export const EditProfile = (loggedInUser) => {
                                 }}
                             />
                         </div>
-                    </fieldset>
-
+                   </div>
                     <div className="form-group">
                         <button onClick={handleSave}
-                            className="new-antique-button">Save New Comment</button>
+                            className="edit-profile-btn">Save New Profile</button>
                     </div>
 
-                </div>
+                
             </div>
         </form>
     )

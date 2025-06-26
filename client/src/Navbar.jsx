@@ -13,6 +13,7 @@ import {
 import { logout } from "./components/managers/authmanager";
 import "./navbar.css"
 
+
 export default function NavBar({ loggedInUser, setLoggedInUser }) {
   const [open, setOpen] = useState(false);
 
@@ -71,11 +72,12 @@ export default function NavBar({ loggedInUser, setLoggedInUser }) {
             >
               Logout
             </Button>
+            
           </div>
         ) : (
          <div></div>
         )}
-     
+    
       </Navbar>
     </div>
     </div>

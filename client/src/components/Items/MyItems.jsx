@@ -63,20 +63,20 @@ export const MyItems = (loggedInUser) => {
                             <div className="item-text">
                                 <div className="my-items-info">
                                     <Link onClick={() => window.scrollTo(0, 0)} key={item.id} to={`/itemdetails/${item.id}`}>
-                                    <div>{item.name}</div>
+                                    <div><b>{item.name}</b></div>
                                     </Link>
                                     {allCategories
                                         .filter((category) => category.id === item.categoryId)
                                         .map((category) => (
-                                            <div key={category.id}>Category: {category.name}</div>
+                                            <div key={category.id}><b>Category:</b> {category.name}</div>
                                         ))}
                                 </div>
                             </div>
 
-                            <div className="myitems-buttons">
-                                <button onClick={() => handleItemDelete(item.id)}>Delete item</button>
+                            <div>
+                                <button className="my-items-buttons" onClick={() => handleItemDelete(item.id)}>Delete item</button>
                                 <Link to={`edititem/${item.id}`}>
-                                    <button >Edit item </button>
+                                    <button className="my-items-buttons" >Edit item </button>
                                 </Link>
                             </div>
                         </div>

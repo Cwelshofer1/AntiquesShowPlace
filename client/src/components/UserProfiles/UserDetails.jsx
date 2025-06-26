@@ -36,8 +36,8 @@ export const UserDetails = () => {
                         />
                     ) : null}
                     <div className="user-details-info">
-                    <div>Name: {users.name}</div>
-                    <div>User Description: {users.userDescription}</div>
+                    <div><b>Name:</b> {users.name}</div>
+                    <div><b>User Description:</b> {users.userDescription}</div>
                     </div>
 
                 </div>

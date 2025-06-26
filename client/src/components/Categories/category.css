@@ -8,7 +8,7 @@
     padding: 15px;
     margin-top: 15px;
     gap: 15px;
-    opacity: 1.0;
+    
     width: 50%;
     margin-left: auto;
     margin-right: auto;
@@ -36,11 +36,17 @@
     padding: 15px;
     margin-top: 15px;
     gap: 15px;
-    opacity: 1.0;
     width: 50%;
     margin-left: auto;
     margin-right: auto;
+    background-color: #f8f9fa;
+}
 
+input[type=text], [type=number], [type=checkbox], [type=image], [type=password], [type=email]
+{
+    height: 20px;
+    margin: 5px;
+    border-radius: 10px; 
 }
 
 .category-title {
@@ -51,3 +57,14 @@ font-family: '';
     font-family: '';
 }
 
+.add-category-button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 15px 30px;
+    border-radius: 25px;
+    font-size: 1.1rem;
+    font-weight: bold;
+    margin-top: 20px;
+   
+}

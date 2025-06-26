@@ -107,6 +107,7 @@ export const AddItem = (loggedInUser) => {
 
 
                             <div className="form-group">
+                                <div className="sale-input">
                                 <label>Do you want to post this item as for sale?:</label>
                                 <input
                                     type="checkbox"
@@ -118,6 +119,7 @@ export const AddItem = (loggedInUser) => {
                                     }}
                                     required
                                     className="form-container" />
+                                    </div>
                             </div>
 
 
@@ -146,61 +148,63 @@ export const AddItem = (loggedInUser) => {
                                 <></>
 
                             )}
-                       
-
-                    {item.itemPhotoUrl ? (
-                        <img
-                            src={item.itemPhotoUrl}
-                            alt="Item"
-                            style={{ width: "200px", height: "150px", objectFit: "cover", marginRight: "15px" }}
-                        />
-                    ) : (
-                        <></>
-                    )}
-                 
-                    <div className="form-group">
-                        <label>Item image: </label>
-                        <input type="file"
-                            accept="image/*"
-                            onChange={(evt) => {
-                                const copy = { ...item }
-                                const file = evt.target.files[0];
-                                const reader = new FileReader();
-
-                                reader.onloadend = () => {
-                                    copy.itemPhotoUrl = reader.result;
-                                    setItem(copy);
-                                }
-                                if (file) {
-                                    reader.readAsDataURL(file);
-                                }
-                            }}
-                            
-
-                        />
-                       
-
-                    </div>
 
 
-                    <select
-                        value={item?.categoryId || 0}
-                        onChange={(evt) => {
-                            const copy = { ...item }
-                            copy.categoryId = parseInt(evt.target.value)
-                            setItem(copy)
+                            {item.itemPhotoUrl ? (
+                                <img
+                                    src={item.itemPhotoUrl}
+                                    alt="Item"
+                                    style={{ width: "200px", height: "150px", objectFit: "cover", marginRight: "15px" }}
+                                />
+                            ) : (
+                                <></>
+                            )}
 
-                        }}>
-                        <option value="0">Select a category</option>
-                        {category.map(categorys => (
+                            <div className="form-group">
+                                
+                                <div className="add-file">
+                                    <label>Item image: </label>
+                                <input type="file"
+                                    accept="image/*"
+                                    onChange={(evt) => {
+                                        const copy = { ...item }
+                                        const file = evt.target.files[0];
+                                        const reader = new FileReader();
 
-                            <option key={categorys.id}
-                                value={categorys.id} >
-                                {categorys.name}
-                            </option>
-                        ))}
-                    </select>
-                         </div>
+                                        reader.onloadend = () => {
+                                            copy.itemPhotoUrl = reader.result;
+                                            setItem(copy);
+                                        }
+                                        if (file) {
+                                            reader.readAsDataURL(file);
+                                        }
+                                    }}
+                                />
+                                </div>
+
+
+                            </div>
+
+                            <div className="add-select">
+                                <select
+                                    value={item?.categoryId || 0}
+                                    onChange={(evt) => {
+                                        const copy = { ...item }
+                                        copy.categoryId = parseInt(evt.target.value)
+                                        setItem(copy)
+
+                                    }}>
+                                    <option value="0">Select a category</option>
+                                    {category.map(categorys => (
+
+                                        <option key={categorys.id}
+                                            value={categorys.id} >
+                                            {categorys.name}
+                                        </option>
+                                    ))}
+                                </select>
+                            </div>
+                        </div>
                     </div>
 
 

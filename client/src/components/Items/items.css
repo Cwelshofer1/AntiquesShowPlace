@@ -1,13 +1,14 @@
 .item-box {
     display: flex;
     flex-direction: row;
-    align-items: center; 
+    align-items: center;
     border: 2px solid #333;
     border-radius: 8px;
     padding: 15px;
     margin-top: 15px;
     gap: 15px;
-    opacity: 1.0;
+    
+
 }
 
 .item-content {
@@ -15,7 +16,7 @@
     flex-direction: column;
     flex: 1;
     gap: 5px;
-    align-items: flex-end; 
+    align-items: flex-end;
     text-align: right;
 }
 
@@ -29,22 +30,31 @@
     flex-direction: row;
     align-items: center;
     width: 100%;
-     border-radius: 8px;
+    border-radius: 8px;
+    margin: 10px;
     padding: 15px;
     margin-top: 15px;
     gap: 15px;
-    opacity: 1.0;
-}
-
-.myitems-buttons {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
     
 }
 
+.my-items-buttons {
+    display: flex;
+    flex-direction: column;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 6px 12px;
+    margin: 10px;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    font-weight: 500;
+
+}
+
 .my-items-info {
-      flex: 1;
+    flex: 1;
+    margin: 10px;
     display: flex;
     flex-direction: column;
     gap: 8px;
@@ -53,27 +63,15 @@
 .add-item-box {
     display: flex;
     flex-direction: column;
-    align-items: center; 
+    align-items: center;
     border: 2px solid #333;
     border-radius: 8px;
     padding: 15px;
     margin-top: 15px;
     gap: 15px;
-    opacity: 1.0;
+    
 
-}
 
-input[type=text], [type=number], [type=checkbox], [type=image]
-{
-    height: 20px;
-    margin: 10px;
-    border-radius: 10px; 
-}
-
-select {
-    height: 20px;
-    margin: 10px;
-    border-radius: 10px; 
 }
 
 .add-item-button {
@@ -84,22 +82,185 @@ select {
     border-radius: 25px;
     font-size: 1.1rem;
     font-weight: bold;
-    cursor: pointer;
     margin-top: 20px;
-    transition: background-color 0.3s ease;
+    
+}
+
+
+.details-box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border: 2px solid #333;
+    border-radius: 16px;
+    padding: 15px;
+    margin-top: 15px;
+    gap: 15px;
+}
+
+
+.details-comment-box {
+    display: flex;
+    flex-direction: column;
+    border: 2px solid #333;
+    border-radius: 16px;
+    padding: 20px;
+    margin-top: 15px;
+    gap: 15px;
+}
+
+.details-info {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    width: 100%;
+}
+
+.comment-content {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-bottom: 15px;
+}
+
+.comment-message {
+    font-size: 1.1rem;
+    font-weight: 500;
+    color: #333;
+    line-height: 1.4;
+    padding: 10px 0;
+}
+
+.author-info {
+    font-weight: bold
+}
+
+.date-info {
+    font-size: 0.95rem;
+}
+
+.likes-info {
+    font-weight: 500;
+}
+
+
+.comment-actions {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+.like-actions {
+    display: flex;
+    gap: 10px;
+}
+
+.user-actions {
+    display: flex;
+    gap: 10px;
+}
+
+
+.like-btn,
+.unlike-btn {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    font-weight: 500;
+}
+
+
+
+.unlike-btn {
+    background-color: #007bff;
+}
+
+
+
+.user-edit-btns {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    font-weight: 500;
+  
+    
+}
+
+.detail-author {
+    font-size: 40px;
+}
+
+.user-add-comment {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 15px 30px;
+    border-radius: 25px;
+    font-size: 1.1rem;
+    font-weight: bold;
+   
+    margin-top: 20px;
+    margin-top: 30px;
+}
+
+.user-delete-btn {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 15px 30px;
+    border-radius: 25px;
+    font-size: 1.1rem;
+    font-weight: bold;
+ 
+    margin-top: 20px;
+}
+
+select {
+    margin-top: 20px;
+}
+
+.add-file {
+    margin-top: 20px;
+}
+
+.sale-input {
+    margin-top: 20px;
+}
+
+.new-antique-button {
+    margin-top: 20px;
 }
 
 @media (max-width: 768px) {
-    .item-box {
-        padding: 15px;
-        margin: 0 10px;
-    }
-    
-    .header {
-        font-size: 1.5rem;
+    .comment-metadata {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
     }
 
-    .all-items-header {
-        font-size: 100px;
+    .metadata-left {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 8px;
     }
-} 
+
+    .comment-actions {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 10px;
+    }
+
+    .like-actions,
+    .user-actions {
+        justify-content: center;
+    }
+
+}

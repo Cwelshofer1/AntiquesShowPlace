@@ -37,7 +37,7 @@ export const NewCategoryForm = () => {
               
                     {categoryList.map((category) => (
 
-                        <div className="category-box">
+                        <div key={category.id} className="category-box">
                             <div className="category-list">
                                 <div key={category.id}> #{category.id} {category.name}</div>
                             </div>
@@ -65,10 +65,10 @@ export const NewCategoryForm = () => {
                     </div>
                
                 
-                    <div className="category-input">
+                    <div>
 
                         <button onClick={handleSave}
-                            className="new-category-button">Save Category</button>
+                            className="add-category-button">Save Category</button>
                     </div>
                 
 
