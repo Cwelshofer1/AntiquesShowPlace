@@ -240,17 +240,6 @@ select {
 }
 
 @media (max-width: 768px) {
-    .comment-metadata {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 10px;
-    }
-
-    .metadata-left {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 8px;
-    }
 
     .comment-actions {
         flex-direction: column;
@@ -263,4 +252,37 @@ select {
         justify-content: center;
     }
 
+}
+
+@media (max-width: 768px) {
+  .item-box {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .item-content {
+    align-items: center;
+    text-align: center;
+  }
+
+  .user-details-info,
+  .my-profile-info {
+    text-align: center;
+  }
+
+  .edit-profile-btn,
+  .delete-profile-btn {
+    padding: 10px 20px;
+    font-size: 1rem;
+    margin: 5px;
+  }
+
+  .form-group-email,
+  .form-group-profile {
+    margin-left: 0;
+  }
+
+  .user-description-profile {
+    margin-right: 0;
+  }
 }
