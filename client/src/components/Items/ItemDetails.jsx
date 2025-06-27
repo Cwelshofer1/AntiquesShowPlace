@@ -82,19 +82,18 @@ export const ItemDetails = () => {
     const handleAddComment = (comment) => {
         GetComments.then(setAllComments)
     }
-
-
-
+   
     return (
         <>
-            <h3>Item Details</h3>
+            <h1>Item Details</h1>
             {allItems.map((item) => (
                 <div key={item.id}>
                     <div className="details-box">
                         <img
+                            className="details-image"
                             src={item.itemPhotoUrl}
                             alt="Header"
-                            style={{ width: "200px", height: "150px", objectFit: "cover", marginRight: "15px" }}
+                           
                         />
                         <div><b>Name:</b> {item.name}</div>
                         <div><b>Description:</b> {item.description}</div>

@@ -239,6 +239,40 @@ select {
     margin-top: 20px;
 }
 
+ .add-description {
+    margin-left: -4.5px;
+  }
+
+  .add-name {
+    margin-left: 30.2px;
+  }
+  .add-year {
+    margin-left: 1px;
+  }
+
+  .add-price {
+    margin-left: 40px;
+  }
+
+  .edit-description {
+    margin-right: 35px;
+  }
+
+  .edit-year {
+    margin-right: 30px;
+  }
+
+  .edit-price {
+    margin-left: 0.8px;
+  }
+
+  .details-image {
+   max-width: 1000px;
+   max-height: 1000px;
+   object-fit:  cover; 
+   margin-right: 15px 
+  }
+
 @media (max-width: 768px) {
 
     .comment-actions {
@@ -258,6 +292,12 @@ select {
   .item-box {
     flex-direction: column;
     text-align: center;
+  }
+
+  .details-image {
+    max-width: 400px;
+    max-height: 300px;
+
   }
 
   .item-content {
@@ -285,4 +325,6 @@ select {
   .user-description-profile {
     margin-right: 0;
   }
+
+ 
 }

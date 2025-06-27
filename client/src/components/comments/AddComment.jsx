@@ -1,5 +1,5 @@
-import { useEffect, useState } from "react"
-import { CreateItem } from "../managers/itemManager"
+import { useState } from "react"
+
 import { useNavigate } from "react-router-dom"
 import { GetCategories } from "../managers/categorymanager"
 import { CreateComment } from "../managers/commentmanager"

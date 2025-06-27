@@ -43,7 +43,7 @@ export default function Register({ setLoggedInUser }) {
 
   return (
     <>
-    <h2>Antiques Showcase!</h2>
+    <h2>Antiques ShowPlace!</h2>
     <div className="container" style={{ maxWidth: "500px" }}>
       
       <h3>Sign Up</h3>

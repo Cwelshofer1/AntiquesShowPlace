@@ -75,7 +75,7 @@ export const EditItem = (loggedInUser) => {
                     </div>
 
 
-                    <div className="form-group">
+                    <div className="edit-description">
                         <label>Description:</label>
                         <input
                             type="text"
@@ -90,7 +90,7 @@ export const EditItem = (loggedInUser) => {
                     </div>
 
 
-                    <div className="form-group">
+                    <div className="edit-year">
                         <label>Year Made:</label>
                         <input
                             type="number"
@@ -140,7 +140,7 @@ export const EditItem = (loggedInUser) => {
                     {item.isSeller === true ? (
                         <div>
 
-                            <div className="form-group">
+                            <div className="edit-price">
                                 <label><b>Price:</b> </label>
                                 <input
                                     type="number"

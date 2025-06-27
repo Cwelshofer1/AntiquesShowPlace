@@ -32,7 +32,7 @@ function App() {
     
   <>
   
-  {location.pathname !== '/login' && (
+  {location.pathname !== '/login' && location.pathname !== '/register' && (
     <NavBar loggedInUser={loggedInUser}
         setLoggedInUser={memoizedSetLoggedInUser}/>
   )}

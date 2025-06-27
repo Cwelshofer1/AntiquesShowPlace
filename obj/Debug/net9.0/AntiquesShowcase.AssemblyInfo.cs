@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("AntiquesShowcase")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+7499f811e8fd4463f25048ca301c0bc79da0d280")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+92c44c4d7c5726d3bd991fb2789a88d792b0bbf7")]
 [assembly: System.Reflection.AssemblyProductAttribute("AntiquesShowcase")]
 [assembly: System.Reflection.AssemblyTitleAttribute("AntiquesShowcase")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

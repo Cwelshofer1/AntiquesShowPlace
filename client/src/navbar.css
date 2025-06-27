@@ -5,8 +5,7 @@
     position: fixed ;
     top: 0;
     left: 0;
-    z-index: 1000;
-     text-align: center;
+    text-align: center;
     border-radius: 0 0 20px 20px;
     box-shadow: 0 4px 20px rgba(220, 38, 38, 0.3);
     padding: 0 ;
@@ -29,7 +28,7 @@
     color: rgba(255, 255, 255, 0.9) ;
 }
 
-/* Hamburger Toggle Button */
+
 .navbar-toggler {
    border: 2px solid rgba(255, 255, 255, 0.5) ;
   
@@ -45,17 +44,13 @@
     box-shadow: 0 0 0 0.2rem rgba(255, 255, 255, 0.25) ;
 }
 
-.navbar-toggler-icon {
-    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%28255, 255, 255, 1%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e") ;
-}
-
 .ms-auto {
       display: flex;
     flex-direction: row;
     margin-left: 170px;
 }
 
-/* Navigation Items */
+
 .navbar-nav {
     width: 100%;
 }
@@ -93,19 +88,6 @@
     text-decoration: none ;
 }
 
-.navbar-nav .btn:focus,
-.navbar-nav .btn:active {
-    background: rgba(255, 255, 255, 0.3) ;
-    border-color: rgba(255, 255, 255, 0.6) ;
-    color: white ;
-    outline: none ;
-    box-shadow: 0 0 0 0.2rem rgba(255, 255, 255, 0.25) ;
-    text-decoration: none ;
-}
-
-
-
-/* Desktop specific styles */
 @media (min-width: 992px) {
     .navbar-toggler {
         display: none ;
@@ -141,10 +123,11 @@
     }
 }
 
-/* Mobile specific styles */
+
 @media (max-width: 991px) {
     .navbar-container {
         max-width: 20%;
+        
     }
     .navbar-toggler {
         display: block ;
@@ -172,9 +155,7 @@
         
     }
     
-    .navbar-brand {
-        font-size: 1.5rem ;
-    }
+  
     
    .navbar-nav {
        display: flex;
@@ -184,13 +165,21 @@
 
    .navbar-nav .btn {
     width: 70px;
+    font-size: 0.1rem;
   }
 }
 
-/* Extra small screens */
+
 @media (max-width: 576px) {
+
+.navbar-container {
+    width: 100%;
+}
+
     .navbar-container .navbar {
         padding: 12px 15px;
+        font-size: 10px;
+    
     }
     
     .navbar-brand {
@@ -199,8 +188,10 @@
     
     .navbar-nav .btn {
         padding: 8px 12px ;
-        font-size: 0.85rem ;
+        font-size: 0.9em ;
     }
+
+    
 }
 
 

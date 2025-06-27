@@ -2,6 +2,7 @@ import { useEffect, useState } from "react"
 import { CreateItem } from "../managers/itemManager"
 import { useNavigate } from "react-router-dom"
 import { GetCategories } from "../managers/categorymanager"
+import "./items.css"
 
 
 export const AddItem = (loggedInUser) => {
@@ -43,7 +44,7 @@ export const AddItem = (loggedInUser) => {
                 <div>
 
                     <div className="add-item-box">
-                        <div className="add-item-content">
+                        <div className="add-name">
 
                             <label>Name:</label>
                             <input
@@ -55,12 +56,12 @@ export const AddItem = (loggedInUser) => {
                                     setItem(copy)
                                 }}
                                 required
-                                className="form-container" />
+                                />
+                                </div>
 
 
-
-                            <div className="form-group">
-                                <label>Description:</label>
+                            <div>
+                                <label className="add-description">Description:</label>
                                 <input
                                     type="text"
                                     value={item?.description || ""}
@@ -70,11 +71,11 @@ export const AddItem = (loggedInUser) => {
                                         setItem(copy)
                                     }}
                                     required
-                                    className="form-container" />
+                                     />
                             </div>
 
 
-                            <div className="form-group">
+                            <div className="add-year">
                                 <label>Year Made:</label>
                                 <input
                                     type="number"
@@ -126,7 +127,7 @@ export const AddItem = (loggedInUser) => {
                             {item.isSeller === true ? (
                                 <div>
 
-                                    <div className="form-group">
+                                    <div className="add-price">
                                         <label>Price: </label>
                                         <input
                                             type="number"
@@ -204,7 +205,7 @@ export const AddItem = (loggedInUser) => {
                                     ))}
                                 </select>
                             </div>
-                        </div>
+                        
                     </div>
 
 

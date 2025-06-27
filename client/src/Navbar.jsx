@@ -15,6 +15,7 @@ import { logout } from "./components/managers/authmanager";
 import "./navbar.css";
 
 export default function NavBar({ loggedInUser, setLoggedInUser }) {
+
   const [open, setOpen] = useState(false);
   const { id } = useParams();
   const navigate = useNavigate();
@@ -31,7 +32,7 @@ export default function NavBar({ loggedInUser, setLoggedInUser }) {
   };
 
   const handleNavClick = () => {
-    setOpen(false); // Close mobile menu when navigation item is clicked
+    setOpen(false); 
   };
 
   return (

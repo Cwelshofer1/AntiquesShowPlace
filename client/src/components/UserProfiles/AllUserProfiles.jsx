@@ -19,7 +19,7 @@ export const AllUsers = ({ loggedInUser }) => {
 
     return (
         <>
-            <h3>All Users</h3>
+            <h1>All Users</h1>
             {allUsers.map((user) => (
                 <div key={user.id}>
                     <div className="user-profile-box">

@@ -50,7 +50,7 @@ export const MyItems = (loggedInUser) => {
 
     return (
         <>
-            <h3>My Items</h3>
+            <h1>My Items</h1>
             {allItems.map((item) => (
                 <div key={item.id}>
                     <div className="item-box">
