@@ -2,6 +2,7 @@ import { useState } from "react";
 import { register } from "../managers/authmanager";
 import { Link, useNavigate } from "react-router-dom";
 import { Button, FormFeedback, FormGroup, Input, Label } from "reactstrap";
+import "./auth.css"
 
 export default function Register({ setLoggedInUser }) {
   const [name, setName] = useState("");
@@ -41,11 +42,15 @@ export default function Register({ setLoggedInUser }) {
   };
 
   return (
-    
+    <>
+    <h2>Antiques ShowPlace!</h2>
     <div className="container" style={{ maxWidth: "500px" }}>
+      
       <h3>Sign Up</h3>
+      <div className="login-box">
+      
       <FormGroup>
-        <Label>Name</Label>
+        <Label>Name: </Label>
         <Input
           type="text"
           value={name}
@@ -55,7 +60,7 @@ export default function Register({ setLoggedInUser }) {
         />
       </FormGroup>
       <FormGroup>
-        <Label>Email</Label>
+        <Label>Email: </Label>
         <Input
           type="email"
           value={email}
@@ -65,7 +70,8 @@ export default function Register({ setLoggedInUser }) {
         />
       </FormGroup>
       <FormGroup>
-        <Label>User Description</Label>
+        <div className="user-description">
+        <Label>User Description: </Label>
         <Input
           type="text"
           value={userDescription}
@@ -73,9 +79,10 @@ export default function Register({ setLoggedInUser }) {
             setUserDescription(e.target.value);
           }}
         />
+        </div>
       </FormGroup>
       <FormGroup>
-        <Label>User Profile Photo (optional)</Label>
+        <Label>User Profile Photo (optional): </Label>
         <Input
           type="file"
           accept="image/*"
@@ -90,18 +97,22 @@ export default function Register({ setLoggedInUser }) {
           }}
         />
         {userPhotoUrl !== "" ? (
+          <div className="register-image">
         <img
+        className="register-image"
           src={userPhotoUrl}
           alt="Item"
-          style={{ width: "150px", height: "100px", objectFit: "cover", marginRight: "15px" }}
+          style={{ width: "200px", height: "150px", objectFit: "cover", marginRight: "15px" }}
         />
+        </div>
         ) : (
           <></>
         ) }
 
       </FormGroup>
       <FormGroup>
-        <Label>Password</Label>
+        <div className="user-password">
+        <Label>Password: </Label>
         <Input
           invalid={passwordMismatch}
           type="password"
@@ -111,9 +122,11 @@ export default function Register({ setLoggedInUser }) {
             setPassword(e.target.value);
           }}
         />
+        </div>
       </FormGroup>
       <FormGroup>
-        <Label> Confirm Password</Label>
+        <div className="confirm-password">
+        <Label> Confirm Password: </Label>
         <Input
           invalid={passwordMismatch}
           type="password"
@@ -123,12 +136,14 @@ export default function Register({ setLoggedInUser }) {
             setConfirmPassword(e.target.value);
           }}
         />
-        <FormFeedback>Passwords do not match!</FormFeedback>
+        </div>
+        
       </FormGroup>
       <p style={{ color: "red" }} hidden={!registrationFailure}>
         Registration Failure
       </p>
       <Button
+      className="register-btn"
         color="primary"
         onClick={handleSubmit}
         disabled={passwordMismatch}
@@ -138,6 +153,8 @@ export default function Register({ setLoggedInUser }) {
       <p>
         Already signed up? Log in <Link to="/login">here</Link>
       </p>
+      </div>
     </div>
+    </>
   );
 }

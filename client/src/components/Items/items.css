@@ -1,0 +1,330 @@
+.item-box {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    border: 2px solid #333;
+    border-radius: 8px;
+    padding: 15px;
+    margin-top: 15px;
+    gap: 15px;
+    
+
+}
+
+.item-content {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    gap: 5px;
+    align-items: flex-end;
+    text-align: right;
+}
+
+.allitems-image {
+    flex-shrink: 0;
+}
+
+.my-items-content {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+    align-items: center;
+    width: 100%;
+    border-radius: 8px;
+    margin: 10px;
+    padding: 15px;
+    margin-top: 15px;
+    gap: 15px;
+    
+}
+
+.my-items-buttons {
+    display: flex;
+    flex-direction: column;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 6px 12px;
+    margin: 10px;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    font-weight: 500;
+
+}
+
+.my-items-info {
+    flex: 1;
+    margin: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.add-item-box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border: 2px solid #333;
+    border-radius: 8px;
+    padding: 15px;
+    margin-top: 15px;
+    gap: 15px;
+    
+
+
+}
+
+.add-item-button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 15px 30px;
+    border-radius: 25px;
+    font-size: 1.1rem;
+    font-weight: bold;
+    margin-top: 20px;
+    
+}
+
+
+.details-box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border: 2px solid #333;
+    border-radius: 16px;
+    padding: 15px;
+    margin-top: 15px;
+    gap: 15px;
+}
+
+
+.details-comment-box {
+    display: flex;
+    flex-direction: column;
+    border: 2px solid #333;
+    border-radius: 16px;
+    padding: 20px;
+    margin-top: 15px;
+    gap: 15px;
+}
+
+.details-info {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    width: 100%;
+}
+
+.comment-content {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-bottom: 15px;
+}
+
+.comment-message {
+    font-size: 1.1rem;
+    font-weight: 500;
+    color: #333;
+    line-height: 1.4;
+    padding: 10px 0;
+}
+
+.author-info {
+    font-weight: bold
+}
+
+.date-info {
+    font-size: 0.95rem;
+}
+
+.likes-info {
+    font-weight: 500;
+}
+
+
+.comment-actions {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+.like-actions {
+    display: flex;
+    gap: 10px;
+}
+
+.user-actions {
+    display: flex;
+    gap: 10px;
+}
+
+
+.like-btn,
+.unlike-btn {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    font-weight: 500;
+}
+
+
+
+.unlike-btn {
+    background-color: #007bff;
+}
+
+
+
+.user-edit-btns {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    font-weight: 500;
+  
+    
+}
+
+.detail-author {
+    font-size: 40px;
+}
+
+.user-add-comment {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 15px 30px;
+    border-radius: 25px;
+    font-size: 1.1rem;
+    font-weight: bold;
+   
+    margin-top: 20px;
+    margin-top: 30px;
+}
+
+.user-delete-btn {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 15px 30px;
+    border-radius: 25px;
+    font-size: 1.1rem;
+    font-weight: bold;
+ 
+    margin-top: 20px;
+}
+
+select {
+    margin-top: 20px;
+}
+
+.add-file {
+    margin-top: 20px;
+}
+
+.sale-input {
+    margin-top: 20px;
+}
+
+.new-antique-button {
+    margin-top: 20px;
+}
+
+ .add-description {
+    margin-left: -4.5px;
+  }
+
+  .add-name {
+    margin-left: 30.2px;
+  }
+  .add-year {
+    margin-left: 1px;
+  }
+
+  .add-price {
+    margin-left: 40px;
+  }
+
+  .edit-description {
+    margin-right: 35px;
+  }
+
+  .edit-year {
+    margin-right: 30px;
+  }
+
+  .edit-price {
+    margin-left: 0.8px;
+  }
+
+  .details-image {
+   max-width: 1000px;
+   max-height: 1000px;
+   object-fit:  cover; 
+   margin-right: 15px 
+  }
+
+@media (max-width: 768px) {
+
+    .comment-actions {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 10px;
+    }
+
+    .like-actions,
+    .user-actions {
+        justify-content: center;
+    }
+
+}
+
+@media (max-width: 768px) {
+  .item-box {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .details-image {
+    max-width: 400px;
+    max-height: 300px;
+
+  }
+
+  .item-content {
+    align-items: center;
+    text-align: center;
+  }
+
+  .user-details-info,
+  .my-profile-info {
+    text-align: center;
+  }
+
+  .edit-profile-btn,
+  .delete-profile-btn {
+    padding: 10px 20px;
+    font-size: 1rem;
+    margin: 5px;
+  }
+
+  .form-group-email,
+  .form-group-profile {
+    margin-left: 0;
+  }
+
+  .user-description-profile {
+    margin-right: 0;
+  }
+
+ 
+}

@@ -1,0 +1,131 @@
+.user-profile-box {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    border: 2px solid #333;
+    border-radius: 8px;
+    padding: 15px;
+    margin-top: 15px;
+    gap: 15px;
+}
+
+.user-profile-names {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    gap: 5px;
+    align-items: flex-end;
+    text-align: right;
+}
+
+.user-details-info {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    gap: 5px;
+    text-align: center;
+}
+
+.my-profile-info {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    gap: 5px;
+    text-align: center;
+}
+
+.my-profile-box {
+
+    align-items: center;
+    border: 2px solid #333;
+    border-radius: 8px;
+    padding: 15px;
+    margin-top: 15px;
+    gap: 15px;
+}
+
+.my-profile-image {
+    align-items: center;
+}
+
+.edit-profile-btn {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 15px 30px;
+    border-radius: 25px;
+    font-size: 1.1rem;
+    font-weight: bold;
+    margin-top: 20px;
+    margin: 10px;
+}
+
+.delete-profile-btn {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 15px 30px;
+    border-radius: 25px;
+    font-size: 1.1rem;
+    font-weight: bold;
+    margin-top: 20px;
+
+
+}
+
+.my-edit-profile-box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border: 2px solid #333;
+    border-radius: 8px;
+    padding: 15px;
+    margin-top: 15px;
+    gap: 15px;
+
+}
+
+.form-group-email {
+      margin-left: 69px;
+}
+
+.form-group-profile {
+    margin-left: 24px;
+}
+
+.user-description-profile {
+    margin-right: 7px;
+}
+
+@media (max-width: 768px) {
+  .user-profile-box {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .user-profile-names {
+    align-items: center;
+    text-align: center;
+  }
+
+  .user-details-info,
+  .my-profile-info {
+    text-align: center;
+  }
+
+  .edit-profile-btn,
+  .delete-profile-btn {
+    padding: 10px 20px;
+    font-size: 1rem;
+    margin: 5px;
+  }
+
+  .form-group-email,
+  .form-group-profile {
+    margin-left: 0;
+  }
+
+  .user-description-profile {
+    margin-right: 0;
+  }
+}

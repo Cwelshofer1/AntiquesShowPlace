@@ -19,7 +19,7 @@ export const MyItems = (loggedInUser) => {
         GetUserProfiles().then(setAllUsers)
     }, [])
 
-     useEffect(() => {
+    useEffect(() => {
         GetCategories().then(setAllCategories)
     }, [])
 
@@ -50,34 +50,37 @@ export const MyItems = (loggedInUser) => {
 
     return (
         <>
-        <h3>My Items</h3>
+            <h1>My Items</h1>
             {allItems.map((item) => (
                 <div key={item.id}>
-                    <div>Name: {item.name}</div>
-                    <div>Description: {item.description}</div>
-                    <div>Year Made: {item.yearMade}</div>
-                    <div>Item is an Antique?: {item.isAntique.toString()}</div>
-                    <div>Is for sell?: {item.isSeller.toString()}</div>
-                    <div>Sellers Price: {item.price}</div>
-                    {allUsers
-                        .filter((user) => user.id === item.userId)
-                        .map((user) => (
-                            <div key={user.id}>Seller: {user.name}</div>
-                        ))}
-                    {allCategories
-                        .filter((category) => category.id === item.categoryId)
-                        .map((category) => (
-                            <div key={category.id}>Category: {category.name}</div>
-                        ))}
-                    <img
-                        src={item.itemPhotoUrl}
-                        alt="Header"
-                        style={{ width: "150px", height: "100px", objectFit: "cover", marginRight: "15px" }}
-                    />
-                    <button onClick={() => handleItemDelete(item.id)}>Delete item</button>
-                    <Link to={`edititem/${item.id}`}>
-                        <button >Edit item </button>
-                    </Link>
+                    <div className="item-box">
+                        <img className="allitems-image"
+                            src={item.itemPhotoUrl}
+                            alt="Header"
+                            style={{ width: "250px", height: "200px", objectFit: "cover", marginRight: "15px" }}
+                        />
+                        <div className="my-items-content">
+                            <div className="item-text">
+                                <div className="my-items-info">
+                                    <Link onClick={() => window.scrollTo(0, 0)} key={item.id} to={`/itemdetails/${item.id}`}>
+                                    <div><b>{item.name}</b></div>
+                                    </Link>
+                                    {allCategories
+                                        .filter((category) => category.id === item.categoryId)
+                                        .map((category) => (
+                                            <div key={category.id}><b>Category:</b> {category.name}</div>
+                                        ))}
+                                </div>
+                            </div>
+
+                            <div>
+                                <button className="my-items-buttons" onClick={() => handleItemDelete(item.id)}>Delete item</button>
+                                <Link to={`edititem/${item.id}`}>
+                                    <button className="my-items-buttons" >Edit item </button>
+                                </Link>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             ))}
         </>

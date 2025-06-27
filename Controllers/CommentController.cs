@@ -80,7 +80,6 @@ public class CommentController : ControllerBase
             return BadRequest();
         }
 
-        //These are the only properties that we want to make editable
         CommentToUpdate.Message = comment.Message;
 
         _dbContext.SaveChanges();

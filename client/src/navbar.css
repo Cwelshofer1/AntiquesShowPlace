@@ -1,0 +1,200 @@
+.navbar-container {
+ 
+    width: 100%;
+    background: linear-gradient(135deg, #dc2626 0%, #b91c1c 100%) ;
+    position: fixed ;
+    top: 0;
+    left: 0;
+    text-align: center;
+    border-radius: 0 0 20px 20px;
+    box-shadow: 0 4px 20px rgba(220, 38, 38, 0.3);
+    padding: 0 ;
+}
+
+.navbar-container .navbar {
+    display: flex;
+    flex-direction: row;
+    background: transparent ;
+}
+
+.navbar-brand {
+    font-size: 1.8rem ;
+    font-weight: bold ;
+    color: white ;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.navbar-brand:hover {
+    color: rgba(255, 255, 255, 0.9) ;
+}
+
+
+.navbar-toggler {
+   border: 2px solid rgba(255, 255, 255, 0.5) ;
+  
+   padding: 10px 10px ;
+   background-image: url("./menu.png");
+   background-size: cover; 
+   background-repeat: no-repeat; 
+   background-position: center; 
+   
+}
+
+.navbar-toggler:focus {
+    box-shadow: 0 0 0 0.2rem rgba(255, 255, 255, 0.25) ;
+}
+
+.ms-auto {
+      display: flex;
+    flex-direction: row;
+    margin-left: 170px;
+}
+
+
+.navbar-nav {
+    width: 100%;
+}
+
+.navbar-nav .nav-item {
+      display: flex;
+    flex-direction: row;
+    margin: 5px 0;
+}
+
+.navbar-nav .btn {
+    background: rgba(255, 255, 255, 0.15) ;
+    border: 2px solid rgba(255, 255, 255, 0.3) ;
+    color: white ;
+    padding: 10px 16px ;
+    border-radius: 15px ;
+    font-weight: 600 ;
+    font-size: 0.9rem ;
+    text-decoration: none ;
+    transition: all 0.3s ease ;
+    backdrop-filter: blur(10px);
+    white-space: nowrap ;
+    width: 100%;
+    margin: 3px 0 ;
+    display: block ;
+    text-align: center ;
+}
+
+.navbar-nav .btn:hover {
+    background: rgba(255, 255, 255, 0.25) ;
+    border-color: rgba(255, 255, 255, 0.5) ;
+    color: white ;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2) ;
+    text-decoration: none ;
+}
+
+@media (min-width: 992px) {
+    .navbar-toggler {
+        display: none ;
+    }
+    
+    .navbar-collapse {
+        display: flex ;
+        flex-direction: row ;
+    }
+    
+    .navbar-nav {
+        flex-direction: row ;
+        align-items: center;
+        /* gap: 55px; */
+        float: right;
+       }
+       
+       .navbar-nav .nav-item {
+   
+        margin: 0 5px;
+        margin-right: 60px; 
+       }
+    
+    .navbar-nav .btn {
+        width: auto ;
+        margin: 0 ;
+        display: inline-block ;
+    }
+    
+    .logout-btn {
+        margin-top: 0 ;
+        margin-left: 10px ;
+    }
+}
+
+
+@media (max-width: 991px) {
+    .navbar-container {
+        max-width: 20%;
+        
+    }
+    .navbar-toggler {
+        display: block ;
+    }
+    
+    .navbar-collapse {
+        background:#dc2626 ;
+        margin: 15px -20px -15px -20px;
+        padding: 20px;
+        border-radius: 0 0 20px 20px;
+        box-shadow: 0 8px 25px rgba(220, 38, 38, 0.4);
+        backdrop-filter: blur(15px);
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
+        margin-top: 10px;
+    }
+    
+    .navbar-collapse:not(.show) {
+        display: none ;
+    }
+    
+    .navbar-collapse.show {
+       
+        margin-left: -250px;
+        max-width: 20%;
+        
+    }
+    
+  
+    
+   .navbar-nav {
+       display: flex;
+       flex-direction: column ;
+       justify-content: flex-start;
+   }
+
+   .navbar-nav .btn {
+    width: 70px;
+    font-size: 0.1rem;
+  }
+}
+
+
+@media (max-width: 576px) {
+
+.navbar-container {
+    width: 100%;
+}
+
+    .navbar-container .navbar {
+        padding: 12px 15px;
+        font-size: 10px;
+    
+    }
+    
+    .navbar-brand {
+        font-size: 1.3rem ;
+    }
+    
+    .navbar-nav .btn {
+        padding: 8px 12px ;
+        font-size: 0.9em ;
+    }
+
+    
+}
+
+
+body {
+    padding-top: 15px;
+}

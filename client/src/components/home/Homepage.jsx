@@ -1,4 +1,6 @@
 import { useState, useEffect } from "react";
+import "./home.css"
+
 
 
 export const Home = () => {
@@ -8,6 +10,10 @@ export const Home = () => {
     
     
     return (
-        <h3>Antiques ShowPlace!</h3>
+        <>
+        
+        
+        <h3>Welcome to Antiques ShowPlace!</h3>
+        </>
     )
 }

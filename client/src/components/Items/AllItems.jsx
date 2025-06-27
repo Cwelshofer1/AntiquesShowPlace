@@ -4,13 +4,14 @@ import { GetUserProfiles } from "../managers/userprofilemanager";
 import { GetCategories } from "../managers/categorymanager";
 import { tryGetLoggedInUser } from "../managers/authmanager";
 import { Link } from "react-router-dom";
+import './items.css'
 export const AllItems = () => {
 
     const [allItems, setAllItems] = useState([])
     const [allUsers, setAllUsers] = useState([])
     const [allCategories, setAllCategories] = useState([])
-  
-    
+
+
 
     useEffect(() => {
         GetItems().then(setAllItems)
@@ -20,43 +21,41 @@ export const AllItems = () => {
         GetUserProfiles().then(setAllUsers)
     }, [])
 
-       useEffect(() => {
+    useEffect(() => {
         GetCategories().then(setAllCategories)
     }, [])
 
 
     return (
         <>
+            <h1 className="all-items-header">All Items</h1>
             {allItems.map((item) => (
                 <div key={item.id}>
-                    <Link  onClick={() => window.scrollTo(0, 0)}key={item.id} to={`/itemdetails/${item.id}`}>
-                        <div className="item-name">{item.name}</div>
-                         </Link>
-                    <div>Name: {item.name}</div>
-                    <div>Description: {item.description}</div>
-                    <div>Year Made: {item.yearMade}</div>
-                    <div>Item is an Antique?: {item.isAntique.toString()}</div>
-                    <div>Is for sell?: {item.isSeller.toString()}</div>
-                    <div>Sellers Price: {item.price}</div>
-                    {allUsers
-                        .filter((user) => user.id === item.userId)
-                        .map((user) => (
-                            <div key={user.id}>Seller: {user.name}</div>
-                        ))}
-                    {allCategories
-                        .filter((category) => category.id === item.categoryId)
-                        .map((category) => (
-                            <div key={category.id}>Category: {category.name}</div>
-                        ))}
-
-
-                    <img
-                        src={item.itemPhotoUrl}
-                        alt="Header"
-                        style={{ width: "150px", height: "100px", objectFit: "cover", marginRight: "15px" }}
-                    />
-                </div>
+                    
+                    <div className="item-box">
+                        <img className="allitems-image"
+                            src={item.itemPhotoUrl}
+                            alt="Header"
+                            style={{ width: "250px", height: "200px", objectFit: "cover", marginRight: "15px" }}
+                        />
+                        <div className="item-content">
+                            <Link onClick={() => window.scrollTo(0, 0)} key={item.id} to={`/itemdetails/${item.id}`}>
+                                <div className="item-name"><b>{item.name}</b></div>
+                            </Link>
+                            {allUsers
+                                .filter((user) => user.id === item.userId)
+                                .map((user) => (
+                                    <div  key={user.id}><b>Author:</b> {user.name}</div>
+                                ))}
+                            {allCategories
+                                .filter((category) => category.id === item.categoryId)
+                                .map((category) => (
+                                    <div key={category.id}><b>Category:</b> {category.name}</div>
+                                ))}
+                                </div>
+                        </div>
+                    </div>
             ))}
-        </>
-    )
+                </>
+            )
 }

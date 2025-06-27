@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react"
 import { useNavigate } from "react-router-dom"
 import { CreateCategory, GetCategories } from "../managers/categorymanager"
+import './category.css'
 
 
 
@@ -30,39 +31,47 @@ export const NewCategoryForm = () => {
     return (
 
         <form>
-            <h2 className="header">Add a new Category to the list</h2>
-            <div className="form-container">
+            <h2 className="category-title">Add a new Category to the list</h2>
+            <div className="category-container">
                 <h3>Current list of Categories: </h3>
-                <div className="form-box">
+              
                     {categoryList.map((category) => (
-                        <div key={category.id}>{category.name}</div>
+
+                        <div key={category.id} className="category-box">
+                            <div className="category-list">
+                                <div key={category.id}> #{category.id} {category.name}</div>
+                            </div>
+                        </div>
+                         
                     ))}
+                   
 
 
-                    <fieldset>
-                        <div className="form-group">
-                            <h3>Add New Category</h3>
-                            <label>Name:</label>
-                            <input
-                                type="text"
-                                value={categorys?.name || ""}
-                                onChange={(evt) => {
-                                    const copy = { ...categorys }
-                                    copy.name = evt.target.value
-                                    setAllCategories(copy)
-                                }}
-                                required
-                                className="form-container" />
-                        </div>
-                    </fieldset>
-                    <fieldset>
-                        <div className="form-group">
 
-                            <button onClick={handleSave}
-                                className="new-category-button">Save Category</button>
-                        </div>
-                    </fieldset>
-                </div>
+                
+                    <div className="category-input">
+                        <h3>Add New Category</h3>
+                        <label><b>Name : </b></label>
+                        <input
+                            type="text"
+                            value={categorys?.name || ""}
+                            onChange={(evt) => {
+                                const copy = { ...categorys }
+                                copy.name = evt.target.value
+                                setAllCategories(copy)
+                            }}
+                            required
+                            className="form-container" />
+                    </div>
+               
+                
+                    <div>
+
+                        <button onClick={handleSave}
+                            className="add-category-button">Save Category</button>
+                    </div>
+                
+
             </div>
         </form>
     )

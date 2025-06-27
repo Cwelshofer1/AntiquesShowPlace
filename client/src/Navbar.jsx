@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { NavLink, NavLink as RRNavLink, useParams } from "react-router-dom";
+import { NavLink as RRNavLink, useParams } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import {
   Button,
@@ -9,72 +9,126 @@ import {
   NavbarBrand,
   NavbarToggler,
   NavItem,
+  NavLink,
 } from "reactstrap";
 import { logout } from "./components/managers/authmanager";
+import "./navbar.css";
 
 export default function NavBar({ loggedInUser, setLoggedInUser }) {
+
   const [open, setOpen] = useState(false);
+  const { id } = useParams();
+  const navigate = useNavigate();
 
   const toggleNavbar = () => setOpen(!open);
 
-  const {id} = useParams()
+  const handleLogout = (e) => {
+    e.preventDefault();
+    setOpen(false);
+    logout().then(() => {
+      navigate('/login');
+      setLoggedInUser(null);
+    });
+  };
 
-  const navigate = useNavigate()
+  const handleNavClick = () => {
+    setOpen(false); 
+  };
 
   return (
-    <div>
+    <div className="navbar-container">
+      <Navbar light expand="lg" className="navbar">
+        <NavbarBrand tag={RRNavLink} to="/" onClick={handleNavClick} className="navbar-image">
       
-      <Navbar light fixed="true" expand="lg">
-        <NavbarBrand className="navbar-brand" tag={RRNavLink} to="/">
-          Antiques ShowPlace
         </NavbarBrand>
+        
         {loggedInUser && loggedInUser !== undefined ? (
           <>
-          
-              <NavLink tag={RRNavLink} to="/allitems">
-                <Button color="primary">All Items</Button>
-              </NavLink>
-              
-                <NavLink tag={RRNavLink} to="/additem">
-                <Button color="primary">Add Item</Button>
-              </NavLink>
+            <NavbarToggler onClick={toggleNavbar} />
+            <Collapse isOpen={open} navbar>
+              <Nav className="ms-auto" navbar>
+                <NavItem>
+                  <Button 
+                    tag={RRNavLink} 
+                    to="/allitems" 
+                    onClick={handleNavClick}
+                    className="btn"
+                  >
+                    All Items
+                  </Button>
+                </NavItem>
+                
+                <NavItem>
+                  <Button 
+                    tag={RRNavLink} 
+                    to="/additem" 
+                    onClick={handleNavClick}
+                    className="btn"
+                  >
+                    Add Item
+                  </Button>
+                </NavItem>
 
-              <NavLink tag={RRNavLink} to="/myitems">
-                <Button color="primary">My Items</Button>
-              </NavLink>
+                <NavItem>
+                  <Button 
+                    tag={RRNavLink} 
+                    to="/myitems" 
+                    onClick={handleNavClick}
+                    className="btn"
+                  >
+                    My Items
+                  </Button>
+                </NavItem>
 
-              <NavLink tag={RRNavLink} to="/addcategory">
-                <Button color="primary">Add Category</Button>
-              </NavLink>
+                <NavItem>
+                  <Button 
+                    tag={RRNavLink} 
+                    to="/addcategory" 
+                    onClick={handleNavClick}
+                    className="btn"
+                  >
+                    Add Category
+                  </Button>
+                </NavItem>
 
-                 <NavLink tag={RRNavLink} to="/allusers">
-                <Button color="primary">All Users</Button>
-              </NavLink>
+                <NavItem>
+                  <Button 
+                    tag={RRNavLink} 
+                    to="/allusers" 
+                    onClick={handleNavClick}
+                    className="btn"
+                  >
+                    All Users
+                  </Button>
+                </NavItem>
 
-                <NavLink tag={RRNavLink} to={`/myprofile/${loggedInUser.id}`}>
-                <Button color="primary">My Profile</Button>
-              </NavLink>
+                <NavItem>
+                  <Button 
+                    tag={RRNavLink} 
+                    to={`/myprofile/${loggedInUser.id}`} 
+                    onClick={handleNavClick}
+                    className="btn"
+                  >
+                    My Profile
+                  </Button>
+                </NavItem>
 
-
-            <Button
-              color="primary"
-              onClick={(e) => {
-                e.preventDefault();
-                setOpen(false);
-                logout().then(() => {
-                  navigate('/login')
-                  setLoggedInUser(null);
-                  setOpen(false);
-                });
-              }}
-            >
-              Logout
-            </Button>
+                <NavItem>
+                  <Button className="btn logout-btn" onClick={handleLogout}>
+                    Logout
+                  </Button>
+                </NavItem>
+              </Nav>
+            </Collapse>
           </>
         ) : (
-         <div></div>
+          <>
+            <NavbarToggler onClick={toggleNavbar} />
+            <Collapse isOpen={open} navbar>
+              
+            </Collapse>
+          </>
         )}
-     
       </Navbar>
     </div>
   );

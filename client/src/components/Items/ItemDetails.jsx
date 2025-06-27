@@ -10,6 +10,7 @@ import { CreateCommentLike, DeleteCommentLike, GetCommentLikes } from "../manage
 import { DeleteItem } from "../managers/itemManager";
 import { GetItems } from "../managers/itemManager";
 import { CreateItem } from "../managers/itemManager";
+import "./items.css"
 
 export const ItemDetails = () => {
 
@@ -81,111 +82,150 @@ export const ItemDetails = () => {
     const handleAddComment = (comment) => {
         GetComments.then(setAllComments)
     }
-
-
-
+   
     return (
         <>
+            <h1>Item Details</h1>
             {allItems.map((item) => (
                 <div key={item.id}>
-                    <div>Name: {item.name}</div>
-                    <div>Description: {item.description}</div>
-                    <div>Year Made: {item.yearMade}</div>
-                    <div>Item is an Antique?: {item?.isAntique.toString()}</div>
-                    <div>Is for sell?: {item?.isSeller.toString()}</div>
-                    <div>Sellers Price: {item.price}</div>
+                    <div className="details-box">
+                        <img
+                            className="details-image"
+                            src={item.itemPhotoUrl}
+                            alt="Header"
+                           
+                        />
+                        <div><b>Name:</b> {item.name}</div>
+                        <div><b>Description:</b> {item.description}</div>
+                        <div><b>Year Made:</b> {item.yearMade}</div>
+                        <div><b>Item is an Antique?:</b> {item?.isAntique.toString()}</div>
+                        {item.isSeller === true ? (
+                            <>
+                                <div><b>Is for sell?:</b> {item?.isSeller.toString()}</div>
+                                <div><b>Sellers Price:</b> ${item.price}</div>
+                            </>
+                        ) : ""}
 
-                    {allUsers
-                        .filter((user) => user.id === item.userId)
-                        .map((user) => (
-                            <div key={user.id}>Seller: {user.name}</div>
-                        ))}
-                    {allCategories
-                        .filter((category) => category.id === item.categoryId)
-                        .map((category) => (
-                            <div key={category.id}>Category: {category.name}</div>
-                        ))}
-                    <img
-                        src={item.itemPhotoUrl}
-                        alt="Header"
-                        style={{ width: "150px", height: "100px", objectFit: "cover", marginRight: "15px" }}
-                    />
-                    <div></div>
+                        {allUsers
+                            .filter((user) => user.id === item.userId)
+                            .map((user) => (
+                                <div key={user.id}><b>Author:</b> {user.name}</div>
+                            ))}
+                        {allCategories
+                            .filter((category) => category.id === item.categoryId)
+                            .map((category) => (
+                                <div key={category.id}><b>Category:</b>  {category.name}</div>
+                            ))}
 
-                    {loggedInUser && loggedInUser.id === item.userId && (
-                        <>
-                            <button onClick={() => handleItemDelete(item.id)}>Delete item</button>
-                            <Link to={`edititem/${item.id}`}>
-                                <button >Edit item </button>
-                            </Link>
-                        </>
-                    )}
-                    <h3>Comments:</h3>
+
+
+                        {loggedInUser && loggedInUser.id === item.userId && (
+                            <>
+                                <button className="user-delete-btn" onClick={() => handleItemDelete(item.id)}>Delete item</button>
+                                <Link to={`edititem/${item.id}`}>
+                                    <button className="user-delete-btn">Edit item </button>
+                                </Link>
+                            </>
+
+                        )}
+                    </div>
+                    <h1>Comments:</h1>
                     {allComments
                         .filter((comment) => item.id === comment.itemId)
                         .map((comment) => (
-                            <div key={comment.id}>
-                                <div key={comment.id}>Comment: {comment.message}</div>
+                            <div key={comment.id} className="details-comment-box">
+                                <div className="details-info">
+                                    
+                                    <div className="comment-content">
+                                        <div className="comment-message">
+                                            {comment.message}
+                                        </div>
+                                    </div>
 
-                                {allUsers
-                                    .filter((user) => user.id === comment.userId)
-                                    .map((user) => (
-                                        <div key={user.id}>
-                                            <div key={user.id}>Author:  {user.name}</div>
-                                            <div>Date Posted: {comment.datePosted}</div>
-                                            {commentLikes.filter((commentlike) => commentlike.commentId === comment.id)
-                                                .length > 0 ? (
+                                    {allUsers
+                                        .filter((user) => user.id === comment.userId)
+                                        .map((user) => (
+                                            <div key={user.id}>
                                                 <div>
-                                                    Likes: {commentLikes.filter((commentlike) => commentlike.commentId === comment.id).length}
+                                                    <div className="author-info">
+                                                        <b></b>Author: {user.name}
+                                                    </div>
+                                                    <div className="date-info">
+                                                        Date Posted: {new Date(comment.datePosted).toLocaleDateString('en-US', {
+                                                           
+                                                        })}
+                                                    </div>
+                                                    {commentLikes.filter((commentlike) => commentlike.commentId === comment.id).length > 0 && (
+                                                        <div className="likes-info">
+                                                            Likes: {commentLikes.filter((commentlike) => commentlike.commentId === comment.id).length}
+                                                        </div>
+                                                    )}
                                                 </div>
-                                            ) : null}
+                                            </div>
+                                        ))}
+
+                                   
+                                    <div className="comment-actions">
+                                        <div className="like-actions">
                                             {commentLikes.find((commentLike) => commentLike.commentId === comment.id && commentLike.userId === loggedInUser?.id) ? (
-                                                <button onClick={(evt) => {
-                                                    evt.preventDefault();
-                                                    if (loggedInUser) {
-                                                        const commentLikeToDelete = commentLikes.find((commentLike) => commentLike.commentId === comment.id && commentLike.userId === loggedInUser.id);
-                                                        if (commentLikeToDelete) {
-                                                            DeleteCommentLike(commentLikeToDelete.id).then(() => {
+                                                <button
+                                                    className="unlike-btn"
+                                                    onClick={(evt) => {
+                                                        evt.preventDefault();
+                                                        if (loggedInUser) {
+                                                            const commentLikeToDelete = commentLikes.find((commentLike) => commentLike.commentId === comment.id && commentLike.userId === loggedInUser.id);
+                                                            if (commentLikeToDelete) {
+                                                                DeleteCommentLike(commentLikeToDelete.id).then(() => {
+                                                                    GetCommentLikes().then(setCommentLikes);
+                                                                });
+                                                            }
+                                                        }
+                                                    }}
+                                                >
+                                                    Unlike Comment
+                                                </button>
+                                            ) : (
+                                                <button
+                                                    className="like-btn"
+                                                    onClick={(evt) => {
+                                                        evt.preventDefault();
+                                                        if (loggedInUser) {
+                                                            const newCommentLike = {
+                                                                userId: loggedInUser.id,
+                                                                commentId: comment.id
+                                                            };
+                                                            CreateCommentLike(newCommentLike).then(() => {
                                                                 GetCommentLikes().then(setCommentLikes);
                                                             });
                                                         }
-                                                    }
-                                                }}>Unlike Comment</button>
-                                            ) : (
-                                                <button onClick={(evt) => {
-                                                    evt.preventDefault();
-                                                    if (loggedInUser) {
-                                                        const newCommentLike = {
-                                                            userId: loggedInUser.id,
-                                                            commentId: comment.id
-                                                        };
-                                                        CreateCommentLike(newCommentLike).then(() => {
-                                                            GetCommentLikes().then(setCommentLikes);
-                                                        });
-                                                    }
-                                                }}>Like Comment</button>
+                                                    }}
+                                                >
+                                                    Like Comment
+                                                </button>
                                             )}
                                         </div>
-                                    ))}
 
-                                {loggedInUser && loggedInUser.id === comment.userId && (
-                                    <>
-                                        <button onClick={() => handleCommentDelete(comment.id)}>Delete Comment</button>
-
-                                        <Link onClick={() => window.scrollTo(0, 0)} key={item.id} to={`/itemdetails/${id}/editcomment/${comment.id}`}>
-                                            <button>Edit Comment</button>
-                                        </Link>
-
-                                    </>
-                                )}
-
-
+                                        {loggedInUser && loggedInUser.id === comment.userId && (
+                                            <div className="user-actions">
+                                                <button
+                                                    className="user-edit-btns"
+                                                    onClick={() => handleCommentDelete(comment.id)}
+                                                >
+                                                    Delete Comment
+                                                </button>
+                                                <Link onClick={() => window.scrollTo(0, 0)} to={`/itemdetails/${id}/editcomment/${comment.id}`}>
+                                                    <button className="user-edit-btns">Edit Comment</button>
+                                                </Link>
+                                            </div>
+                                        )}
+                                    </div>
+                                </div>
                             </div>
                         ))}
 
 
                     <Link onClick={() => window.scrollTo(0, 0)} key={item.id} to={`/itemdetails/${id}/addcomment`}>
-                        <button>Add Comment</button>
+                        <button className="user-add-comment">Add Comment</button>
                     </Link>
                 </div>
             ))}

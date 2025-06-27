@@ -12,7 +12,7 @@ public class Registration
  
     [Required]
     public string UserDescription { get; set; }
-    [Required]
+    
     public string UserPhotoUrl { get; set; }
     [Required]
     public string Password { get; set; }

@@ -2,6 +2,7 @@ import { useEffect, useState } from "react"
 import { CreateItem } from "../managers/itemManager"
 import { useNavigate } from "react-router-dom"
 import { GetCategories } from "../managers/categorymanager"
+import "./items.css"
 
 
 export const AddItem = (loggedInUser) => {
@@ -39,10 +40,12 @@ export const AddItem = (loggedInUser) => {
     return (
         <form>
             <h2 className="header">Add a new Item to the list!</h2>
-            <div className="form-container">
-                <div className="form-box">
-                    <fieldset>
-                        <div className="form-group">
+            <div>
+                <div>
+
+                    <div className="add-item-box">
+                        <div className="add-name">
+
                             <label>Name:</label>
                             <input
                                 type="text"
@@ -53,42 +56,42 @@ export const AddItem = (loggedInUser) => {
                                     setItem(copy)
                                 }}
                                 required
-                                className="form-container" />
-                        </div>
-                    </fieldset>
-                    <fieldset>
-                        <div className="form-group">
-                            <label>Description:</label>
-                            <input
-                                type="text"
-                                value={item?.description || ""}
-                                onChange={(evt) => {
-                                    const copy = { ...item }
-                                    copy.description = evt.target.value
-                                    setItem(copy)
-                                }}
-                                required
-                                className="form-container" />
-                        </div>
-                    </fieldset>
-                    <fieldset>
-                        <div className="form-group">
-                            <label>Year Made:</label>
-                            <input
-                                type="number"
-                                placeholder="Enter year made (If known)"
-                                value={item?.yearMade || ""}
-                                onChange={(evt) => {
-                                    const copy = { ...item }
-                                    copy.yearMade = evt.target.value
-                                    setItem(copy)
-                                }}
-                                required
-                                className="form-container" />
-                        </div>
-                    </fieldset>
-                    <fieldset>
-                        <fieldset>
+                                />
+                                </div>
+
+
+                            <div>
+                                <label className="add-description">Description:</label>
+                                <input
+                                    type="text"
+                                    value={item?.description || ""}
+                                    onChange={(evt) => {
+                                        const copy = { ...item }
+                                        copy.description = evt.target.value
+                                        setItem(copy)
+                                    }}
+                                    required
+                                     />
+                            </div>
+
+
+                            <div className="add-year">
+                                <label>Year Made:</label>
+                                <input
+                                    type="number"
+                                    placeholder="Enter year made (If known)"
+                                    value={item?.yearMade || ""}
+                                    onChange={(evt) => {
+                                        const copy = { ...item }
+                                        copy.yearMade = evt.target.value
+                                        setItem(copy)
+                                    }}
+                                    required
+                                    className="form-container" />
+                            </div>
+
+
+
                             <div className="form-group">
                                 <label>Is it a antique? (Over 100 years old?):</label>
                                 <input
@@ -102,9 +105,10 @@ export const AddItem = (loggedInUser) => {
                                     required
                                     className="form-container" />
                             </div>
-                        </fieldset>
-                        <fieldset>
+
+
                             <div className="form-group">
+                                <div className="sale-input">
                                 <label>Do you want to post this item as for sale?:</label>
                                 <input
                                     type="checkbox"
@@ -116,13 +120,14 @@ export const AddItem = (loggedInUser) => {
                                     }}
                                     required
                                     className="form-container" />
+                                    </div>
                             </div>
-                        </fieldset>
 
-                        {item.isSeller === true ? (
-                            <div>
-                                <fieldset>
-                                    <div className="form-group">
+
+                            {item.isSeller === true ? (
+                                <div>
+
+                                    <div className="add-price">
                                         <label>Price: </label>
                                         <input
                                             type="number"
@@ -136,68 +141,77 @@ export const AddItem = (loggedInUser) => {
                                             required
                                             className="form-container" />
                                     </div>
-                                </fieldset>
+
+
+                                </div>
+
+                            ) : (
+                                <></>
+
+                            )}
+
+
+                            {item.itemPhotoUrl ? (
+                                <img
+                                    src={item.itemPhotoUrl}
+                                    alt="Item"
+                                    style={{ width: "200px", height: "150px", objectFit: "cover", marginRight: "15px" }}
+                                />
+                            ) : (
+                                <></>
+                            )}
+
+                            <div className="form-group">
+                                
+                                <div className="add-file">
+                                    <label>Item image: </label>
+                                <input type="file"
+                                    accept="image/*"
+                                    onChange={(evt) => {
+                                        const copy = { ...item }
+                                        const file = evt.target.files[0];
+                                        const reader = new FileReader();
+
+                                        reader.onloadend = () => {
+                                            copy.itemPhotoUrl = reader.result;
+                                            setItem(copy);
+                                        }
+                                        if (file) {
+                                            reader.readAsDataURL(file);
+                                        }
+                                    }}
+                                />
+                                </div>
+
 
                             </div>
-                        ) : (
-                            <></>
 
-                        )}
-                    </fieldset>
-                    {item.itemPhotoUrl  ? (
-                        <img
-                            src={item.itemPhotoUrl}
-                            alt="Item"
-                            style={{ width: "150px", height: "100px", objectFit: "cover", marginRight: "15px" }}
-                        />
-                    ) : (
-                        <></>
-                    )}
-                    <fieldset>
-                        <div className="form-group">
-                            <label>Item image: </label>
-                            <input type="file"
-                                accept="image/*"
-                                onChange={(evt) => {
-                                    const copy = { ...item }
-                                    const file = evt.target.files[0];
-                                    const reader = new FileReader();
+                            <div className="add-select">
+                                <select
+                                    value={item?.categoryId || 0}
+                                    onChange={(evt) => {
+                                        const copy = { ...item }
+                                        copy.categoryId = parseInt(evt.target.value)
+                                        setItem(copy)
 
-                                    reader.onloadend = () => {
-                                        copy.itemPhotoUrl = reader.result;
-                                        setItem(copy);
-                                    }
-                                    if (file) {
-                                        reader.readAsDataURL(file);
-                                    }
-                                }}
+                                    }}>
+                                    <option value="0">Select a category</option>
+                                    {category.map(categorys => (
 
-                            />
-                        </div>
-                    </fieldset>
-
-                    <select
-                        value={item?.categoryId || 0}
-                        onChange={(evt) => {
-                            const copy = { ...item }
-                            copy.categoryId = parseInt(evt.target.value)
-                            setItem(copy)
-
-                        }}>
-                        <option value="0">Select a category</option>
-                        {category.map(categorys => (
-
-                            <option key={categorys.id}
-                                value={categorys.id} >
-                                {categorys.name}
-                            </option>
-                        ))}
-                    </select>
+                                        <option key={categorys.id}
+                                            value={categorys.id} >
+                                            {categorys.name}
+                                        </option>
+                                    ))}
+                                </select>
+                            </div>
+                        
+                    </div>
 
 
                     <div className="form-group">
                         <button onClick={handleSave}
-                            className="new-tag-button">Save Antique</button>
+                            className="add-item-button">Save Antique</button>
                     </div>
 
                 </div>
